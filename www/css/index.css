@@ -1,0 +1,77 @@
+/*General css*/
+body {
+    background-color: #fff;
+    font-family: Arial;    
+}
+
+h5 {
+    color: #8c0003;
+    font-family: Arial;
+    font-weight: bold;
+}
+
+.title-full-width {
+    background-color: #efefef;
+    height: 50px;
+}
+
+.title-full-width .row,
+.title-full-width .row > div {
+    height: 100%;
+}
+
+.title-full-width .row h5 {
+    font-size: 0.89em;
+    margin-top: 10px;
+}
+
+.title-full-width .row h5 img {
+    margin-right: 10px;
+}
+
+.title-full-width .row:after {
+    background: #fff url("images/bg-title-full-with.jpg") no-repeat scroll 0.9375rem 0;
+    height: 18px;
+    width: 100%;
+}
+
+/*Header*/
+header {
+    background: #b3151a url("img/bg-header.jpg") repeat-x bottom;
+    min-height: 116px;
+}
+
+header a {
+    display: block;
+    margin-top: 25px;
+}
+
+.list-cities {
+    display: block;
+    list-style: none;
+    margin-left: 0;
+    margin-top: 15px;
+    min-height: 300px;
+    overflow-y: scroll;
+}
+
+.list-cities li a {
+    color: #797979;
+    font-family: Arial;
+}
+
+/*Footer*/
+footer {
+    background-color: #6b1012;
+    bottom: 0;
+    min-height: 40px;
+    width: 100%;
+}
+
+footer p {
+    color: #fff;
+    font-family: Arial;
+    font-size: 0.8em;
+    margin-top: 10px;
+    text-align: center;
+}
