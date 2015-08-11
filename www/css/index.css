@@ -18,6 +18,10 @@ h5 {
     background-color: #efefef;
     min-height: 50px;
     margin-bottom: 10px;
+    position: fixed;
+    top: 116px;
+    z-index: 1000;
+    width: 100%;
 }
 
 .title-full-width .row,
@@ -26,7 +30,7 @@ h5 {
 }
 
 .title-full-width .row h5 {
-    font-size: 3rem;
+    font-size: 1.5rem;
     margin-top: 10px;
 }
 
@@ -37,7 +41,11 @@ h5 {
 /*Header*/
 header {
     background: #b3151a url("img/bg-header.jpg") repeat-x bottom;
-    min-height: 116px;
+    height: 116px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
 }
 
 header a {
@@ -57,7 +65,7 @@ header a {
 .list-cities li a {
     color: #797979;
     font-family: Arial;
-    font-size: 2.5rem;
+    font-size: 1rem;
 }
 
 /*Footer*/
