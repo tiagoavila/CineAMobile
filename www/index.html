@@ -27,26 +27,6 @@
         <div class="row" style="margin-top: 180px">
             <div class="small-12 columns">
                 <ul class="list-cities">
-                    <li><a href="programacao.html?id=1">Alfenas</a></li>
-                    <li><a href="">Monte Belo</a></li>
-                    <li><a href="">São João não sei d onde</a></li>
-                    <li><a href="">Alfenas</a></li>
-                    <li><a href="">Alfenas</a></li>
-                    <li><a href="">Alfenas</a></li>
-                    <li><a href="">Alfenas</a></li>
-                    <li><a href="">Alfenas</a></li>
-                    <li><a href="">Alfenas</a></li>
-                    <li><a href="">Alfenas</a></li>
-                    <li><a href="">Alfenas</a></li>
-                    <li><a href="">Monte Belo</a></li>
-                    <li><a href="">São João não sei d onde</a></li>
-                    <li><a href="">Alfenas</a></li>
-                    <li><a href="">Alfenas</a></li>
-                    <li><a href="">Alfenas</a></li>
-                    <li><a href="">Alfenas</a></li>
-                    <li><a href="">Alfenas</a></li>
-                    <li><a href="">Alfenas</a></li>
-                    <li><a href="">Alfenas</a></li>
                 </ul>
             </div>
         </div>
@@ -60,22 +40,19 @@
     </body>
     <script src="js/zepto.min.js"></script>
     <script type="text/javascript">
-        var urlGetCities = "http://localhost:27908/api/city";
+        var urlGetCities = "http://cinea.com.br/webapi/getcities";
 
-        /*Zepto(function($){
-          $.ajax({
-              type: 'GET',
-              url: urlGetCities,
-              dataType: 'json',
-              success: function(data){
+        $.ajax({
+            type: 'GET',
+            url: urlGetCities,
+            success: function(data){
                 $.each(data, function (index, item) {
-                    $('ul').append('<li><a id=' + item.Id + '>' + item.Name + '</a></li>');
+                    $('ul').append('<li><a href="programacao.html?id=' + item.Id + '">' + item.Name + '</a></li>');
                 });
-              },
-              error: function(xhr, type){
+            },
+            error: function(xhr, type){
                 alert('Ajax error!')
-              }
-            });
-        });*/
+            }
+        });
     </script>
 </html>
