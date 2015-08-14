@@ -10,10 +10,6 @@ h5 {
     font-weight: bold;
 }
 
-.clr{
-    clear: both;
-}
-
 .title-full-width {
     background-color: #efefef;
     height: 60px;
@@ -111,7 +107,7 @@ footer p {
     font-family: Arial;
     font-size: 1em;
     font-weight: bold;
-    padding: 1rem 8rem 0.5rem 0;
+    padding: 1rem 8rem 0.5rem 1rem;
 }
 
 .programming .row-movie {
@@ -156,7 +152,7 @@ footer p {
     color: #8b8b8b;
     font-size: 0.75rem;
     margin-bottom: 0.5rem;
-    padding-left: 35px;
+    padding-left: 27px;
 }
 
 .programming .row-movie .informations .type-image {
