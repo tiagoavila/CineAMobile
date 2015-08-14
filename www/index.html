@@ -33,7 +33,7 @@
         <footer>
             <div class="row">
                 <div class="small-12 columns">
-                    <p>Todos os direitos reservados © 2010 Cine Art Café ME.</p>
+                    <p><a href="index.html"><img src="img/home-icon.png" style="width: 55px;"></a></p>
                 </div>
             </div>
         </footer>
@@ -42,17 +42,19 @@
     <script type="text/javascript">
         var urlGetCities = "http://cinea.com.br/webapi/getcities";
 
-        $.ajax({
-            type: 'GET',
-            url: urlGetCities,
-            success: function(data){
-                $.each(data, function (index, item) {
-                    $('ul').append('<li><a href="programacao.html?id=' + item.Id + '">' + item.Name + '</a></li>');
-                });
-            },
-            error: function(xhr, type){
-                alert('Ajax error!')
-            }
+        Zepto(function($){
+            $.ajax({
+                type: 'GET',
+                url: urlGetCities,
+                success: function(data){
+                    $.each(data, function (index, item) {
+                        $('ul').append('<li><a href="programacao.html?cityId=' + item.Id + '">' + item.Name + '</a></li>');
+                    });
+                },
+                error: function(xhr, type){
+                    alert('Ocorreu um erro, verifique sua conexão com a internet.')
+                }
+            });
         });
     </script>
 </html>

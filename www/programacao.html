@@ -25,107 +25,86 @@
                     </div>
                 </div>
             </div>
-
             <div class="row">
-                <ul class="tabs">
-                    <li class="tab-title active">Semana</li>
-                </ul>
+                <ul class="tabs"><li class="tab-title active current-week">Semana</li></ul>
                 <div class="tabs-content">
-                    <div class="content active current-programming">
-                        <div class="row-movie">
-                            <div class="small-8 columns name-and-horary">
-                                <h6><a href="/Movie/Index/3">Quarteto Fantástico</a></h6>
-                                <p>16:30 - 19:00</p>
-                                <p class="horary-with-observation">Sab e Dom - 14:30</p>
-                            </div>
-                            <div class="small-3 columns end informations text-left">
-                                <div class="row">
-                                    <div class="small-12 columns"><p class="type-image">3D</p></div>
-                                    <div class="small-12 columns">
-                                        <p class="type-copy">Dublado</p>
-                                    </div>
-                                    <div class="small-12 columns end">
-                                        <p class="classification classification-10">
-                                            <span class="hidden-for-small">10 Anos</span>
-                                            <span class="show-for-small-only">&nbsp;</span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row-movie">
-                            <div class="small-8 columns name-and-horary">
-                                <h6><a href="/Movie/Index/3">Quarteto Fantástico</a></h6>
-                                <p>16:30 - 19:00</p>
-                                <p class="horary-with-observation">Sab e Dom - 14:30</p>
-                            </div>
-                            <div class="small-3 columns end informations text-left">
-                                <div class="row">
-                                    <div class="small-12 columns"></div>
-                                    <div class="small-12 columns">
-                                        <p class="type-copy">Dublado</p>
-                                    </div>
-                                    <div class="small-12 columns end">
-                                        <p class="classification classification-10">
-                                            <span class="hidden-for-small">10 Anos</span>
-                                            <span class="show-for-small-only">&nbsp;</span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row-movie">
-                            <div class="small-8 columns name-and-horary">
-                                <h6><a href="/Movie/Index/3">Quarteto Fantástico</a></h6>
-                                <p>16:30 - 19:00</p>
-                                <p class="horary-with-observation">Sab e Dom - 14:30</p>
-                            </div>
-                            <div class="small-3 columns end informations text-left">
-                                <div class="row">
-                                    <div class="small-12 columns"><p class="type-image">3D</p></div>
-                                    <div class="small-12 columns">
-                                        <p class="type-copy">Dublado</p>
-                                    </div>
-                                    <div class="small-12 columns end">
-                                        <p class="classification classification-10">
-                                            <span class="hidden-for-small">10 Anos</span>
-                                            <span class="show-for-small-only">&nbsp;</span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="content active current-programming"></div>
                 </div>
             </div>
-
         </div>
         <footer>
             <div class="row">
                 <div class="small-12 columns">
-                    <p>Todos os direitos reservados © 2010 Cine Art Café ME.</p>
+                    <p><a href="index.html"><img src="img/home-icon.png" style="width: 55px;"></a></p>
                 </div>
             </div>
         </footer>
     </body>
     <script src="js/zepto.min.js"></script>
     <script type="text/javascript">
-        var urlGetCities = "http://localhost:27908/api/city";
+        function GetUrlParameter(parameter) {
+            var parameters = window.location.search.substring(1).split("&");
+            for (var i = 0; i < parameters.length; i++) {
+                var splitParameter = parameters[i].split("=");
+                if (splitParameter[0] == parameter) {
+                    return splitParameter[1];
+                }
+            }
+        }
+        var urlGetProgramming = "http://cinea.com.br/webapi/GetProgrammingByCity?cityId=" + GetUrlParameter("cityId");
 
-        /*Zepto(function($){
-          $.ajax({
-              type: 'GET',
-              url: urlGetCities,
-              dataType: 'json',
-              success: function(data){
-                $.each(data, function (index, item) {
-                    $('ul').append('<li><a id=' + item.Id + '>' + item.Name + '</a></li>');
+        Zepto(function($){
+
+            function FillHoraries(programming, divProgramming) {
+                $.each(programming.Horaries, function (i, horary) {
+                    var horaryNormal = horary.Horary != null ? '<p>' + horary.Horary + '</p>' : '';
+                    var horaryWithObservation = '';
+
+                    if (horary.HorariesWithObservation != null) {
+                        $.each(horary.HorariesWithObservation, function (i, itemHoraryWithObservation) {
+                            horaryWithObservation += '<p class="horary-with-observation">' + itemHoraryWithObservation + '</p>';
+                        });
+                    }
+
+                    var is3D = horary.Is3D ? '<p class="type-image">3D</p>' : '';
+
+                    var classClassification;
+                    switch (horary.Classification) {
+                        case "Livre":
+                            classClassification = "classification-free";
+                            break;
+                        case "10 Anos":
+                            classClassification = "classification-10";
+                            break;
+                        case "12 Anos":
+                            classClassification = "classification-12";
+                            break;
+                        case "14 Anos":
+                            classClassification = "classification-14";
+                            break;
+                        case "16 Anos":
+                            classClassification = "classification-16";
+                            break;
+                        case "18 Anos":
+                            classClassification = "classification-18";
+                            break;
+                    }
+
+                    $(divProgramming).append('<div class="row-movie"><div class="small-8 columns name-and-horary"><h6><a href="#">' + horary.NameMovie + '</a></h6>' + horaryNormal + horaryWithObservation + '</div><div class="small-3 columns end informations text-left"><div class="row"><div class="small-12 columns">' + is3D + '</div><div class="small-12 columns"><p class="type-copy">' + horary.Idiom + '</p></div><div class="small-12 columns end"><p class="classification ' + classClassification +'"><span class="show-for-small-only">&nbsp;</span></p></div></div></div></div>');
                 });
-              },
-              error: function(xhr, type){
-                alert('Ajax error!')
-              }
+            }
+
+            /*Get programming*/
+            $.ajax({
+                url: urlGetProgramming,
+                type: "GET",
+                success: function (programming) {
+                    $(".city-name").html(programming.CityName);
+                    $(".current-week").text(programming.Week);
+                    FillHoraries(programming, '.current-programming');
+                }
             });
-        });*/
+
+        });
     </script>
 </html>
