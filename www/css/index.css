@@ -10,6 +10,11 @@ h5 {
     font-weight: bold;
 }
 
+h1.city-name{
+    color: #484747;
+    font-weight: bold;
+}
+
 .title-full-width {
     background-color: #efefef;
     min-height: 60px;
@@ -107,7 +112,7 @@ footer p {
     font-family: Arial;
     font-size: 1em;
     font-weight: bold;
-    padding: 1rem 8rem 0.5rem 1rem;
+    padding: 0.5rem 8rem 0.5rem 1rem;
 }
 
 .programming .row-movie {
