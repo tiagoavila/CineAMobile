@@ -24,9 +24,12 @@
                 </div>
             </div>
         </div>
-        <div class="row" style="margin-top: 180px">
+        <div class="row list-cities" style="margin-top: 180px;">
+            <div class="small-12 small-centered columns text-center image-loading">
+                <img src="img/image-loading.gif" style="width: 60px; margin-top: 80px;">
+            </div>
             <div class="small-12 columns">
-                <ul class="list-cities">
+                <ul class="list-cities" style="display: none;">
                 </ul>
             </div>
         </div>
@@ -50,6 +53,9 @@
                     $.each(data, function (index, item) {
                         $('ul').append('<li><a href="programacao.html?cityId=' + item.Id + '">' + item.Name + '</a></li>');
                     });
+
+                    $(".image-loading").hide();
+                    $(".list-cities").show();
                 },
                 error: function(xhr, type){
                     alert('Ocorreu um erro, verifique sua conexão com a internet.')
