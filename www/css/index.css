@@ -12,7 +12,7 @@ h5 {
 
 .title-full-width {
     background-color: #efefef;
-    height: 60px;
+    min-height: 60px;
     margin-bottom: 0;
     position: fixed;
     top: 116px;
