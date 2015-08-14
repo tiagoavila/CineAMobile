@@ -25,7 +25,12 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row image-loading">
+                <div class="small-12 small-centered columns text-center">
+                    <img src="img/image-loading.gif" style="width: 60px; margin-top: 80px;">
+                </div>
+            </div>
+            <div class="row content-programming" style="display: none;">
                 <ul class="tabs"><li class="tab-title active current-week">Semana</li></ul>
                 <div class="tabs-content">
                     <div class="content active current-programming"></div>
@@ -90,7 +95,7 @@
                             break;
                     }
 
-                    $(divProgramming).append('<div class="row-movie"><div class="small-8 columns name-and-horary"><h6><a href="#">' + horary.NameMovie + '</a></h6>' + horaryNormal + horaryWithObservation + '</div><div class="small-3 columns end informations text-left"><div class="row"><div class="small-12 columns">' + is3D + '</div><div class="small-12 columns"><p class="type-copy">' + horary.Idiom + '</p></div><div class="small-12 columns end"><p class="classification ' + classClassification +'"><span class="show-for-small-only">&nbsp;</span></p></div></div></div></div>');
+                    $(divProgramming).append('<div class="row-movie"><div class="small-12 columns name-and-horary"><h6><a href="#">' + horary.NameMovie + '</a></h6>' + horaryNormal + horaryWithObservation + '</div><div class="small-12 columns end informations text-left"><div class="row"><div class="small-4 columns">' + is3D + '</div><div class="small-4 columns"><p class="type-copy">' + horary.Idiom + '</p></div><div class="small-4 columns end"><p class="classification ' + classClassification +'"><span class="show-for-small-only">&nbsp;</span></p></div></div></div></div>');
                 });
             }
 
@@ -102,6 +107,9 @@
                     $(".city-name").html(programming.CityName);
                     $(".current-week").text(programming.Week);
                     FillHoraries(programming, '.current-programming');
+
+                    $(".image-loading").hide();
+                    $(".content-programming").show();
                 }
             });
 
