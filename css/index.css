@@ -143,7 +143,7 @@ footer p {
     background: #fff url("../img/bg-normal-horary.jpg") no-repeat scroll left center;
     color: #484747;
     font-size: .875rem;
-    height: 23px;
+    min-height: 23px;
     margin-bottom: 0.4rem;
     padding-left: 30px;
 }
