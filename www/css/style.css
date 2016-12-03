@@ -13,6 +13,11 @@
 /*Barra de título*/
 .bar-header.bar-assertive{
     border-color: #73010b;
+    background-color: #73010b;
+    height: 80px;
+}
+
+.bar-header.bar-assertive .title{
     background: #73010b url("../img/logo-cinea2.jpg") no-repeat scroll center center !important;
     height: 80px;
 }
@@ -51,6 +56,12 @@
 
 .scroll {
   height: 100%;
+}
+
+/*City list*/
+.city-list li {
+  background-color: #444;
+  color: #fff;
 }
 
 .city-list.ng-hide-remove {
