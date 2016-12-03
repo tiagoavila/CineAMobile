@@ -1,0 +1,14 @@
+<ion-view>
+  <ion-content class="city-detail">
+    <div class="box-spinner"><ion-spinner icon="spiral"></ion-spinner></div>
+    <iframe id="map" ng-src="{{UrlIframe}}" frameborder="0" style="border:0" allowfullscreen></iframe>
+    <div class="information">
+      <h3><i class="icon ion-location"></i>&nbsp;{{City.Name}}&nbsp;/&nbsp;{{City.Uf}}</h1>
+      <p><strong>Recursos:</strong><br/>
+        <span ng-repeat="resource in City.Resources">{{resource}}<br/></span>
+      </p>
+      <p><strong>Endereço:</strong><br>{{City.Address}}</p>
+      <p><strong>Telefone:</strong><br>{{City.Phone}}</p>
+    </div>
+  </ion-content>
+</ion-view>

@@ -70,12 +70,30 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       }
     }
   })
-  .state('app.map', {
-      url: '/map',
+  .state('app.movietheaters', {
+      url: '/movietheaters',
       views: {
         'menuContent': {
-          templateUrl: 'templates/map.html',
-          controller: 'MapCtrl'
+          templateUrl: 'templates/movietheaters.html',
+          controller: 'MovieTheatersCtrl'
+        }
+      }
+    })
+  .state('app.city', {
+    url: '/city/{cityId}',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/city.html',
+        controller: 'CityCtrl'
+      }
+    }
+  })
+  .state('app.contact', {
+      url: '/contact',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/contact.html',
+          controller: 'ContactCtrl'
         }
       }
     });

@@ -1,0 +1,13 @@
+<ion-view>
+    <ion-content class="movie-theaters">
+        <div class="list">
+            <a class="item item-icon-right" href="#/app/city/{{city.Id}}" ng-repeat="city in Cities">
+                {{city.Name}}
+                <span class="item-note">
+                    {{city.State}}
+                </span>
+                <i class="icon ion-ios-arrow-right"></i>
+            </a>
+        </div>
+  </ion-content>
+</ion-view>

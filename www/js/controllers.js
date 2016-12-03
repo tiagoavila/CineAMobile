@@ -1,12 +1,29 @@
 angular.module('starter.controllers', [])
 
-.constant('URL_API', 'http://www.cinea.com.br/WebApi')
+//.constant('URL_API', 'http://testecinea.azurewebsites.net/webapi')
+.constant('URL_API', 'http://localhost:42550/webapi')
 
 .service("AppService", function ($http, URL_API) {
   this.getCities = function () {
       var req = $http.get(URL_API + '/GetCities');
       return req;
   };
+
+  this.getCitiesWithStates = function () {
+      var req = $http.get(URL_API + '/GetCitiesWithStates');
+      return req;
+  };
+
+  this.getCityDetails = function (cityId) {
+      var req = $http.get(URL_API + '/GetCityDetails?cityId=' + cityId);
+      return req;
+  };
+
+  this.sendEmail = function(contactModel){
+    var req = $http.get(URL_API + '/SendEmail?name=' + contactModel.Name + '&email=' 
+      + contactModel.Email + '&movieTheater=' + contactModel.MovieTheater + '&message=' + contactModel.Message);
+    return req;
+  }
 })
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
@@ -124,76 +141,43 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('MapCtrl', function($scope, $ionicLoading, $compile) {
-  // var options = {timeout: 10000, enableHighAccuracy: true};
- 
-  // $cordovaGeolocation.getCurrentPosition(options).then(function(position){
- 
-  //   var latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
- 
-  //   var mapOptions = {
-  //     center: latLng,
-  //     zoom: 15,
-  //     mapTypeId: google.maps.MapTypeId.ROADMAP
-  //   };
- 
-  //   $scope.map = new google.maps.Map(document.getElementById("map"), mapOptions);
- 
-  // }, function(error){
-  //   console.log("Could not get location");
-  // });
-  //  function initialize() {
-  //       var myLatlng = new google.maps.LatLng(-21.429943, -45.948568);
-        
-  //       var mapOptions = {
-  //         center: myLatlng,
-  //         zoom: 16,
-  //         mapTypeId: google.maps.MapTypeId.ROADMAP
-  //       };
-  //       var map = new google.maps.Map(document.getElementById("map"),
-  //           mapOptions);
-        
-  //       //Marker + infowindow + angularjs compiled ng-click
-  //       var contentString = "<div><a ng-click='clickTest()'>Click me!</a></div>";
-  //       var compiled = $compile(contentString)($scope);
+.controller('MovieTheatersCtrl', function($scope, $state, AppService) {
+  $scope.Cities = []; 
 
-  //       var infowindow = new google.maps.InfoWindow({
-  //         content: compiled[0]
-  //       });
+  var citiesRequest = AppService.getCitiesWithStates();
+  citiesRequest.success(function (data) {
+      $scope.Cities = data;
+  });
+})
 
-  //       var marker = new google.maps.Marker({
-  //         position: myLatlng,
-  //         map: map,
-  //         title: 'Uluru (Ayers Rock)'
-  //       });
-
-  //       google.maps.event.addListener(marker, 'click', function() {
-  //         infowindow.open(map,marker);
-  //       });
-
-  //       $scope.map = map;
-  //     }
-  //     google.maps.event.addDomListener(window, 'load', initialize);
+.controller('CityCtrl', function($scope, $stateParams, $sce, AppService) {
+  var citiesRequest = AppService.getCityDetails($stateParams.cityId);
+  citiesRequest.success(function (data) {
+      $scope.City = data;
+      $scope.UrlIframe = $sce.trustAsResourceUrl(data.UrlMap);
       
-  //     $scope.centerOnMe = function() {
-  //       if(!$scope.map) {
-  //         return;
-  //       }
+  });
+})
 
-  //       $scope.loading = $ionicLoading.show({
-  //         content: 'Getting current location...',
-  //         showBackdrop: false
-  //       });
+.controller('ContactCtrl', function($scope, AppService) {
+  $scope.ContactModel = {
+    Name: "",
+    Email: "",
+    MovieTheater: "",
+    Message: ""
+  };
 
-  //       navigator.geolocation.getCurrentPosition(function(pos) {
-  //         $scope.map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
-  //         $scope.loading.hide();
-  //       }, function(error) {
-  //         alert('Unable to get location: ' + error.message);
-  //       });
-  //     };
-      
-  //     $scope.clickTest = function() {
-  //       alert('Example of infowindow with ng-click')
-  //     };
+  $scope.SendEmail = function(){
+    if($scope.ContactModel.Name != "" && $scope.ContactModel.Email != "" && $scope.ContactModel.Message != "") {
+      var contactRequest = AppService.sendEmail($scope.ContactModel);
+      contactRequest.success(function(data) {
+          alert("Contato enviado com sucesso.");
+      }).error(function() {
+          alert("Erro ao enviar contato.");
+      });
+    } else {
+      alert("Os campos Nome, E-mail e Mensagem são obrigatórios. Preencha todos antes de enviar.");
+    }
+    
+  };
 });
