@@ -12,8 +12,8 @@
 
 /*Barra de título*/
 .bar-header.bar-assertive{
-    border-color: #73010b;
-    background-color: #73010b;
+    border-color: #73010b !important;
+    background-color: #73010b !important;
     height: 80px;
 }
 
@@ -36,8 +36,9 @@
   color: #ffffff;
 }
 
-.dark .list .item-content .icon {
+.main-menu .dark .list .item-content .icon {
     color: #ff3040;
+    font-size: 150%;
 }
 
 .ion-navicon-round {
@@ -46,6 +47,11 @@
 
 .ion-search{
   margin-top: 15px;
+}
+
+.main-menu .item-complex .item-content, 
+.main-menu .item-radio .item-content {
+  padding: 16px 10px;
 }
 
 /*Google Maps*/
