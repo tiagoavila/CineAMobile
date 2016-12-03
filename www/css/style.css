@@ -1,0 +1,69 @@
+/*Css Geral*/
+.btn-choose-your-city {
+  background-color: #212121 !important;
+  margin-bottom: 0 !important;
+  margin-top: 0 !important;
+  z-index: 1000;
+}
+
+.has-header {
+    top: 80px;
+}
+
+/*Barra de título*/
+.bar-header.bar-assertive{
+    border-color: #73010b;
+    background: #73010b url("../img/logo-cinea2.jpg") no-repeat scroll center center !important;
+    height: 80px;
+}
+
+/*Menu lateral*/
+.menu-left .scroll-content.ionic-scroll {
+    background-color: #1f1f1f;
+}
+
+.dark .list .item{
+  border-color: #000;
+}
+
+.dark .list .item-content{
+  background-color: #3f4041 !important;
+  color: #ffffff;
+}
+
+.dark .list .item-content .icon {
+    color: #ff3040;
+}
+
+.ion-navicon-round {
+  margin-top: 10px;
+}
+
+.ion-search{
+  margin-top: 15px;
+}
+
+/*Google Maps*/
+#map {
+  width: 100%;
+  height: 50%;
+}
+
+.scroll {
+  height: 100%;
+}
+
+.city-list.ng-hide-remove {
+  -webkit-animation: 2s show;
+  animation: 2s show;
+}
+
+@keyframes show {
+  from { top: -100%; }
+  to { top: 0; }
+}
+
+@-webkit-keyframes show {
+  from { top: -100%; }
+  to { top: 0; }
+}
