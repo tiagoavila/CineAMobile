@@ -96,7 +96,17 @@ angular.module('starter', ['ionic', 'starter.controllers'])
           controller: 'ContactCtrl'
         }
       }
+    })
+    .state('app.ticket', {
+      url: '/ticket',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/ticket.html',
+          controller: 'TicketCtrl'
+        }
+      }
     });
+
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/home');
 });

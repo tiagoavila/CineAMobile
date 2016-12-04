@@ -180,4 +180,8 @@ angular.module('starter.controllers', [])
     }
     
   };
+})
+
+.controller('TicketCtrl', function($scope) {
+  
 });
