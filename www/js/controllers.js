@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.constant('URL_API', 'http://testecinea.azurewebsites.net/webapi')
+.constant('URL_API', 'http://cinea.com.br/webapi')
 // .constant('URL_API', 'http://localhost:42550/webapi')
 
 .service("AppService", function ($http, URL_API) {
