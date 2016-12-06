@@ -1,7 +1,8 @@
 angular.module('starter.controllers', [])
 
 .constant('URL_API', 'http://cinea.com.br/webapi')
-// .constant('URL_API', 'http://localhost:42550/webapi')
+//.constant('URL_API', 'http://localhost:42550/webapi')
+.constant('SECURITY_TOKEN', 'Cine@1015!')
 
 .service("AppService", function ($http, URL_API) {
   this.getCities = function () {
@@ -19,52 +20,15 @@ angular.module('starter.controllers', [])
       return req;
   };
 
-  this.sendEmail = function(contactModel){
+  this.sendEmail = function(contactModel, SECURITY_TOKEN){
     var req = $http.get(URL_API + '/SendEmail?name=' + contactModel.Name + '&email=' 
-      + contactModel.Email + '&movieTheater=' + contactModel.MovieTheater + '&message=' + contactModel.Message);
+      + contactModel.Email + '&movieTheater=' + contactModel.MovieTheater + '&message=' + contactModel.Message 
+      + '&token=' + SECURITY_TOKEN);
     return req;
   }
 })
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
-
-  // With the new view caching in Ionic, Controllers are only called
-  // when they are recreated or on app start, instead of every page change.
-  // To listen for when this page is active (for example, to refresh data),
-  // listen for the $ionicView.enter event:
-  //$scope.$on('$ionicView.enter', function(e) {
-  //});
-
-  // Form data for the login modal
-  $scope.loginData = {};
-
-  // Create the login modal that we will use later
-  $ionicModal.fromTemplateUrl('templates/login.html', {
-    scope: $scope
-  }).then(function(modal) {
-    $scope.modal = modal;
-  });
-
-  // Triggered in the login modal to close it
-  $scope.closeLogin = function() {
-    $scope.modal.hide();
-  };
-
-  // Open the login modal
-  $scope.login = function() {
-    $scope.modal.show();
-  };
-
-  // Perform the login action when the user submits the login form
-  $scope.doLogin = function() {
-    console.log('Doing login', $scope.loginData);
-
-    // Simulate a login delay. Remove this and replace with your login
-    // code if using a login system
-    $timeout(function() {
-      $scope.closeLogin();
-    }, 1000);
-  };
 })
 
 .controller('HomeCtrl', function($scope, AppService) {
@@ -141,12 +105,24 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('MovieTheatersCtrl', function($scope, $state, AppService) {
+.controller('MovieTheatersCtrl', function($scope, $state, $ionicLoading, AppService) {
+  function ShowLoading(){
+    $scope.loadingIndicator = $ionicLoading.show({
+        template: '<ion-spinner></ion-spinner>'
+    });
+  }
+
+  function HideLoading() {
+    $ionicLoading.hide();
+  };
+
   $scope.Cities = []; 
 
+  ShowLoading();
   var citiesRequest = AppService.getCitiesWithStates();
   citiesRequest.success(function (data) {
       $scope.Cities = data;
+      HideLoading();
   });
 })
 
@@ -159,7 +135,17 @@ angular.module('starter.controllers', [])
   });
 })
 
-.controller('ContactCtrl', function($scope, AppService) {
+.controller('ContactCtrl', function($scope, $ionicLoading, AppService, SECURITY_TOKEN) {
+  function ShowLoading(){
+    $scope.loadingIndicator = $ionicLoading.show({
+        template: '<ion-spinner></ion-spinner>'
+    });
+  }
+
+  function HideLoading() {
+    $ionicLoading.hide();
+  };
+
   $scope.ContactModel = {
     Name: "",
     Email: "",
@@ -169,10 +155,22 @@ angular.module('starter.controllers', [])
 
   $scope.SendEmail = function(){
     if($scope.ContactModel.Name != "" && $scope.ContactModel.Email != "" && $scope.ContactModel.Message != "") {
-      var contactRequest = AppService.sendEmail($scope.ContactModel);
+      ShowLoading();
+
+      var contactRequest = AppService.sendEmail($scope.ContactModel, SECURITY_TOKEN);
       contactRequest.success(function(data) {
+          HideLoading();
           alert("Contato enviado com sucesso.");
+
+          $scope.ContactModel = {
+              Name: "",
+              Email: "",
+              MovieTheater: "",
+              Message: ""
+            };
+
       }).error(function() {
+          HideLoading();
           alert("Erro ao enviar contato.");
       });
     } else {
