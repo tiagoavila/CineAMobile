@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.constant('URL_API', 'http://cinea.com.br/webapi')
+.constant('URL_API', 'http://www.cinea.com.br/webapi')
 //.constant('URL_API', 'http://localhost:42550/webapi')
 .constant('SECURITY_TOKEN', 'Cine@1015!')
 
@@ -46,7 +46,7 @@ angular.module('starter.controllers', [])
   });
 })
 
-.controller('PlaylistCtrl', function($scope, $stateParams) {
+.controller('PromotionCtrl', function($scope, $stateParams) {
 })
 
 .controller('SearchCtrl', function($scope, $http) {
@@ -63,7 +63,7 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('BrowseCtrl', function($scope, $ionicModal, $sce) {  
+.controller('MoviesCtrl', function($scope, $ionicModal, $sce) {  
 
   $ionicModal.fromTemplateUrl('my-modal.html', {
     scope: $scope,
@@ -181,5 +181,29 @@ angular.module('starter.controllers', [])
 })
 
 .controller('TicketCtrl', function($scope) {
-  
+})
+
+.controller('ProgrammingCtrl', function($scope) {
+  $('.flexslider-horaries').flexslider({
+      animation: "slide",
+      slideshow: false,
+      itemWidth: 113,
+      itemMargin: 0,
+      minItems: 4,
+      maxItems: 4,
+      controlNav: false,
+      directionNav: false,
+      move: 1,
+      touch: true
+  });
+
+  $('.btn-prev').on('click', function () {
+      $('.flexslider-horaries').flexslider('prev');
+      return false;
+  });
+
+  $('.btn-next').on('click', function () {
+      $('.flexslider-horaries').flexslider('next');
+      return false;
+  });
 });

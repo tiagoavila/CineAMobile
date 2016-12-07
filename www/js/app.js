@@ -42,12 +42,12 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     }
   })
 
-  .state('app.browse', {
-      url: '/browse',
+  .state('app.movies', {
+      url: '/movies',
       views: {
         'menuContent': {
-          templateUrl: 'templates/browse.html',
-          controller: 'BrowseCtrl'
+          templateUrl: 'templates/movies.html',
+          controller: 'MoviesCtrl'
         }
       }
     })
@@ -61,12 +61,12 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       }
     })
 
-  .state('app.single', {
-    url: '/playlists/:playlistId',
+  .state('app.promotion', {
+    url: '/promotion',
     views: {
       'menuContent': {
-        templateUrl: 'templates/playlist.html',
-        controller: 'PlaylistCtrl'
+        templateUrl: 'templates/promotion.html',
+        controller: 'PromotionCtrl'
       }
     }
   })
@@ -97,15 +97,24 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         }
       }
     })
-    .state('app.ticket', {
-      url: '/ticket',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/ticket.html',
-          controller: 'TicketCtrl'
-        }
+  .state('app.ticket', {
+    url: '/ticket',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/ticket.html',
+        controller: 'TicketCtrl'
       }
-    });
+    }
+  })
+  .state('app.programming', {
+    url: '/programming/{cityId}',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/programming.html',
+        controller: 'ProgrammingCtrl'
+      }
+    }
+  });
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/home');

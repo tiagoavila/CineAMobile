@@ -1,4 +1,8 @@
 /*Css Geral*/
+p, a {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 .btn-choose-your-city {
   background-color: #212121 !important;
   margin-bottom: 0 !important;
@@ -152,4 +156,105 @@
   margin-bottom: 30px;
   margin-top: 30px;
   width: 80% !important;
+}
+
+/*Home*/
+.home {
+  background-color: #303030;
+}
+
+.home .p-title {
+  background-color: #292929;
+  color: #e0e0e0;
+  padding: 5px 0 5px 8px;
+}
+
+.home .in-poster {
+  background-color: #292929;
+}
+
+.home .coming-soon {
+  background: #610313 url("../img/bg-comming-soon.jpg") no-repeat scroll center center;
+}
+
+.home a {
+  color: #e0e0e0;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+}
+
+.home .col {
+  margin-bottom: 10px;
+}
+
+/*programming*/
+.programming .box-date-horaries {
+    border: 1px solid #8a8a8a;
+    height: 70px;
+    position: relative;
+    width: 100%;
+}
+
+.programming .box-date-horaries .flexslider-horaries {
+    height: 100%;
+    margin: 0 auto;
+    width: 80%;
+}
+
+.programming .box-date-horaries .btn-nav {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 10%;
+}
+
+.programming .box-date-horaries .btn-prev {
+    background: transparent url("../img/btn-prev-horary.jpg") no-repeat center center; 
+    left: 0;
+}
+
+.programming .box-date-horaries .btn-next {
+    background: transparent url("../img/btn-next-horary.jpg") no-repeat center center;
+    right: 0;
+}
+
+.programming .box-date-horaries .flexslider-horaries .flex-viewport, 
+.programming .box-date-horaries .flexslider-horaries .slides {
+    height: 100%;
+}
+
+.programming .box-date-horaries .flexslider-horaries .slides li {
+    color: #070707;
+    font-size: 100%;
+    height: 100%;
+    line-height: 1.2rem;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    text-transform: uppercase;
+}
+
+.programming .box-date-horaries .flexslider-horaries .slides li.active {
+    background-color: #c33131;
+    color: #fff;
+    cursor: pointer;
+}
+
+.programming .box-date-horaries .flexslider-horaries .slides li:hover {
+    background-color: gray;
+    color: #fff;
+    cursor: pointer;
+}
+
+.programming .box-date-horaries .flexslider-horaries .slides li:after {
+    background-color: #8a8a8a;
+    content: "";
+    float: right;
+    height: 100%;
+    margin-top: -19px;
+    width: 1px;
+}
+
+.programming .box-date-horaries .flexslider-horaries .slides li span {
+    font-size: 120%;
 }
