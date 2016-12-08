@@ -4,11 +4,9 @@
             <div class="col">
                 <div class="box-date-horaries">
                     <a href="#" class="btn-nav btn-prev"></a>
-                    <div class="flexslider-horaries">
+                    <div class="flexslider-horaries" ng-show="ShowFlexSlide">
                         <ul class="slides">
-                                <!--<li ng-click="ChangeDateAndGetHoraries($event)" class="text-center active" data-date="10">05<br/><span>seg</span></li>-->
-                                <!--<li class="text-center active" data-date="10">SEG<br/><span>07/12</span></li>-->
-                            <li class="text-center" data-date="10" ng-repeat="date in Dates">{{date.WeekDay}}<br/><span>{{date.DayAndMonth}}</span></li>
+                            <li class="text-center" ng-repeat="date in Dates">{{date.WeekDay}}<br/><span>{{date.DayAndMonth}}</span></li>
                         </ul>
                     </div>
                     <a href="#" class="btn-nav btn-next"></a>

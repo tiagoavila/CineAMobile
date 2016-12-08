@@ -43,6 +43,10 @@ angular.module('starter.controllers', [])
     $scope.ShowMenu = !$scope.ShowMenu;
   };
 
+  $scope.HideMenu = function(){
+    $scope.ShowMenu = false;
+  };
+
   $scope.Cities = []; 
 
   var citiesRequest = AppService.getCities();
@@ -65,7 +69,6 @@ angular.module('starter.controllers', [])
         $scope.Movies = data;
       });
   };
-
 })
 
 .controller('MoviesCtrl', function($scope, $ionicModal, $sce) {  
@@ -181,41 +184,43 @@ angular.module('starter.controllers', [])
     } else {
       alert("Os campos Nome, E-mail e Mensagem são obrigatórios. Preencha todos antes de enviar.");
     }
-    
   };
 })
 
 .controller('TicketCtrl', function($scope) {
 })
 
-.controller('ProgrammingCtrl', function($scope, $stateParams, AppService) {
-  $scope.Dates = [];
+.controller('ProgrammingCtrl', function($scope, $http, $timeout, $stateParams, AppService, URL_API) {
+  $scope.ShowFlexSlide = false;
 
-  $('.btn-prev').on('click', function () {
-      $('.flexslider-horaries').flexslider('prev');
-      return false;
-  });
-
-  $('.btn-next').on('click', function () {
-      $('.flexslider-horaries').flexslider('next');
-      return false;
-  });
-
-  var citiesRequest = AppService.getDatesHorary($stateParams.cityId);
-  citiesRequest.success(function (data) {
+  $http.get(URL_API + '/GetDatesHorary?cityId=' + $stateParams.cityId).success(function (data) {
     $scope.Dates = data;
 
-    $('.flexslider-horaries').flexslider({
-      animation: "slide",
-      slideshow: false,
-      itemWidth: 113,
-      itemMargin: 0,
-      minItems: 4,
-      maxItems: 4,
-      controlNav: false,
-      directionNav: false,
-      move: 1,
-      touch: true
-    });
+    $timeout(function(){
+        $('.flexslider-horaries').flexslider({
+          animation: "slide",
+          slideshow: false,
+          itemWidth: 113,
+          itemMargin: 0,
+          minItems: 4,
+          maxItems: 4,
+          controlNav: false,
+          directionNav: false,
+          move: 1,
+          touch: true
+        });
+
+        $('.btn-prev').on('click', function () {
+          $('.flexslider-horaries').flexslider('prev');
+          return false;
+        });
+
+        $('.btn-next').on('click', function () {
+          $('.flexslider-horaries').flexslider('next');
+          return false;
+        });
+
+        $scope.ShowFlexSlide = true;
+      }, 2000);      
   });
 });

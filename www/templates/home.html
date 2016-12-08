@@ -5,7 +5,7 @@
     </button>
     <ul class="list city-list" ng-show="ShowMenu">
         <li class="item" ng-repeat="city in Cities">
-          <a href="#/app/programming/{{city.Id}}">{{city.Name}}</a>
+          <a ng-click="HideMenu()" href="#/app/programming/{{city.Id}}">{{city.Name}}</a>
         </li>
       </ul>
       <p class="p-title in-poster">Em cartaz</p>
