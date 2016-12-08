@@ -1,7 +1,7 @@
 angular.module('starter.controllers', [])
 
-.constant('URL_API', 'http://www.cinea.com.br/webapi')
-//.constant('URL_API', 'http://localhost:42550/webapi')
+//.constant('URL_API', 'http://www.cinea.com.br/webapi')
+.constant('URL_API', 'http://localhost:42550/webapi')
 .constant('SECURITY_TOKEN', 'Cine@1015!')
 
 .service("AppService", function ($http, URL_API) {
@@ -25,7 +25,12 @@ angular.module('starter.controllers', [])
       + contactModel.Email + '&movieTheater=' + contactModel.MovieTheater + '&message=' + contactModel.Message 
       + '&token=' + SECURITY_TOKEN);
     return req;
-  }
+  };
+
+  this.getDatesHorary = function (cityId) {
+      var req = $http.get(URL_API + '/GetDatesHorary?cityId=' + cityId);
+      return req;
+  };
 })
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
@@ -183,8 +188,24 @@ angular.module('starter.controllers', [])
 .controller('TicketCtrl', function($scope) {
 })
 
-.controller('ProgrammingCtrl', function($scope) {
-  $('.flexslider-horaries').flexslider({
+.controller('ProgrammingCtrl', function($scope, $stateParams, AppService) {
+  $scope.Dates = [];
+
+  $('.btn-prev').on('click', function () {
+      $('.flexslider-horaries').flexslider('prev');
+      return false;
+  });
+
+  $('.btn-next').on('click', function () {
+      $('.flexslider-horaries').flexslider('next');
+      return false;
+  });
+
+  var citiesRequest = AppService.getDatesHorary($stateParams.cityId);
+  citiesRequest.success(function (data) {
+    $scope.Dates = data;
+
+    $('.flexslider-horaries').flexslider({
       animation: "slide",
       slideshow: false,
       itemWidth: 113,
@@ -195,15 +216,6 @@ angular.module('starter.controllers', [])
       directionNav: false,
       move: 1,
       touch: true
-  });
-
-  $('.btn-prev').on('click', function () {
-      $('.flexslider-horaries').flexslider('prev');
-      return false;
-  });
-
-  $('.btn-next').on('click', function () {
-      $('.flexslider-horaries').flexslider('next');
-      return false;
+    });
   });
 });

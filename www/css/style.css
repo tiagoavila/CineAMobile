@@ -192,6 +192,7 @@ p, a {
 .programming .box-date-horaries {
     border: 1px solid #8a8a8a;
     height: 70px;
+    margin-top: 15px;
     position: relative;
     width: 100%;
 }
@@ -257,4 +258,51 @@ p, a {
 
 .programming .box-date-horaries .flexslider-horaries .slides li span {
     font-size: 120%;
+}
+
+.programming p.title {
+  color: #000;
+  font-size: 140%;
+  margin-top: 15px;
+}
+
+.programming .row-movie {
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+.programming .row-movie .col {
+  border-bottom: 1px solid #666;
+  padding-bottom: 10px;
+}
+
+.programming .row-movie p.name-movie {
+  color: #000;
+  font-size: 140%;
+}
+
+.programming .row-movie p.horary {
+  color: #000;
+  font-size: 100%;
+  margin-bottom: 10px;
+  padding-left: 25px; 
+}
+
+.programming .row-movie p.horary.horary-observation {
+  background: transparent url("../img/bg-horary-obs.jpg") no-repeat left center;
+  color: #920316;
+}
+
+.programming .row-movie p.horary.horary-normal {
+  background: transparent url("../img/bg-horary-normal.jpg") no-repeat left center;
+}
+
+.programming .row-movie .idiom {
+  background: transparent url("../img/bg-type-copy.jpg") no-repeat left center;
+  margin-right: 10px;
+  padding-left: 18px;
+}
+
+.programming .row-movie .ico-3d {
+  margin-right: 10px;
 }
