@@ -307,15 +307,15 @@ p, a {
 }
 
 .programming .row-movie p.dub {
-  background: transparent url("../img/ico-dublado.jpg") no-repeat scroll left;
+  background: transparent url("../img/ico-dublado.jpg") no-repeat scroll left top;
 }
 
 .programming .row-movie p.leg {
-  background: transparent url("../img/ico-legendado.jpg") no-repeat scroll left;
+  background: transparent url("../img/ico-legendado.jpg") no-repeat scroll left top;
 }
 
 .programming .row-movie p.nac {
-  background: transparent url("../img/ico-nacional.jpg") no-repeat scroll left;
+  background: transparent url("../img/ico-nacional.jpg") no-repeat scroll left top;
 }
 
 .programming .row-movie .classification {

@@ -1,7 +1,7 @@
 angular.module('starter.controllers', [])
 
-//.constant('URL_API', 'http://www.cinea.com.br/webapi')
-.constant('URL_API', 'http://localhost:42550/webapi') 
+.constant('URL_API', 'http://www.cinea.com.br/webapi')
+//.constant('URL_API', 'http://localhost:42550/webapi') 
 .constant('SECURITY_TOKEN', 'Cine@1015!')
 
 .service("AppService", function ($http, URL_API) {
@@ -255,4 +255,16 @@ angular.module('starter.controllers', [])
         $scope.ShowFlexSlide = true;
       }, 2000);      
   });
+
+  $scope.ChangeDateAndGetHoraries = function ($event, date) {
+    $(".flexslider-horaries li.active").removeClass("active");
+    $event.currentTarget.className += " active";
+
+    ShowLoading();
+    var programming = AppService.getProgramming($stateParams.cityId, date);
+    programming.success(function (programming) {
+        $scope.Horaries = programming.horaries;
+        HideLoading();
+    });
+  };
 });
