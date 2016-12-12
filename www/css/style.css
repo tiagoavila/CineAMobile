@@ -236,14 +236,9 @@ textarea::-moz-placeholder {
     text-transform: uppercase;
 }
 
-.programming .box-date-horaries .flexslider-horaries .slides li.active {
-    background-color: #c33131;
-    color: #fff;
-    cursor: pointer;
-}
-
+.programming .box-date-horaries .flexslider-horaries .slides li.active,
 .programming .box-date-horaries .flexslider-horaries .slides li:hover {
-    background-color: gray;
+    background-color: #c33131;
     color: #fff;
     cursor: pointer;
 }
