@@ -1,7 +1,7 @@
 angular.module('starter.controllers', [])
 
-.constant('URL_API', 'http://www.cinea.com.br/webapi')
-//.constant('URL_API', 'http://localhost:42550/webapi') 
+//.constant('URL_API', 'http://www.cinea.com.br/webapi')
+.constant('URL_API', 'http://localhost:42550/webapi') 
 .constant('SECURITY_TOKEN', 'Cine@1015!')
 
 .service("AppService", function ($http, URL_API) {
@@ -35,6 +35,11 @@ angular.module('starter.controllers', [])
   this.getProgramming = function(cityId, date) {
     var req = $http.get(URL_API + '/GetProgrammingByCityAndDate?cityId=' + cityId + '&date=' + date);
       return req;
+  };
+
+  this.searchMovies = function(query) {
+    var req = $http.get(URL_API + '/SearchMovies?query=' + query);
+      return req;
   }
 })
 
@@ -66,14 +71,14 @@ angular.module('starter.controllers', [])
 .controller('PromotionCtrl', function($scope, $stateParams) {
 })
 
-.controller('SearchCtrl', function($scope, $http) {
+.controller('SearchCtrl', function($scope, AppService) {
   $scope.txtsearch = '';
 
   $scope.doSearch = function(){
     var search = document.getElementById("txt-search").value;
 
-    $http.get('http://localhost:42550/WebApi/TestApi?text=' + search)
-    .success(function(data) {
+    var searchRequest = AppService.searchMovies(search);
+    searchRequest.success(function(data) {
         $scope.Movies = data;
       });
   };

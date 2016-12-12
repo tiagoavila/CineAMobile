@@ -14,6 +14,11 @@ p, a {
     top: 80px;
 }
 
+input::-moz-placeholder, 
+textarea::-moz-placeholder {
+  color: #333;
+}
+
 /*Barra de título*/
 .bar-header.bar-assertive{
     border-color: #73010b !important;
@@ -140,14 +145,10 @@ p, a {
   height: 50%;
 }
 
-/*Formulário de contato*/
-.contact input::-moz-placeholder, 
-.contact textarea::-moz-placeholder {
-  color: #333;
-}
-
 /*Ingresso*/
-.ticket img {
+.ticket .img-ingresso-com {
+  background: transparent url("../img/ingresso-com.png") no-repeat scroll center center;
+  height: 102px;
   margin-bottom: 30px;
   margin-top: 40px;
 }
