@@ -4,3 +4,10 @@
 node_modules/
 platforms/
 plugins/
+/www/lib/angular
+/www/lib/angular-animate
+/www/lib/angular-sanitize
+/www/lib/angular-ui-router/release
+/www/lib/angular-ui-router/api
+/www/lib/angular-ui-router/src
+/www/lib/angular-ui-router
