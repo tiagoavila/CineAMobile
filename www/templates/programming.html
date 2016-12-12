@@ -6,7 +6,7 @@
                     <a href="#" class="btn-nav btn-prev"></a>
                     <div class="flexslider-horaries" ng-show="ShowFlexSlide">
                         <ul class="slides">
-                            <li class="text-center" ng-repeat="date in Dates">{{date.WeekDay}}<br/><span>{{date.DayAndMonth}}</span></li>
+                            <li class="text-center {{date.ClassActive}}" ng-repeat="date in Dates">{{date.WeekDay}}<br/><span>{{date.DayAndMonth}}</span></li>
                         </ul>
                     </div>
                     <a href="#" class="btn-nav btn-next"></a>
@@ -15,51 +15,25 @@
         </div>
         <div class="row">
             <div class="col">
-                <p class="title">Alfenas - 01/01 a 01/01</p>
+                <p class="title">{{CityName}}</p>
             </div>
         </div>
-        <div class="row row-movie">
+        <div class="row row-movie" ng-repeat="horary in Horaries">
             <div class="col col-33">
-                <img src="http://cinea.com.br/Images/Movies/116.jpg" width="100%">
+                <img ng-src="{{horary.ImageUrl}}" width="100%">
             </div>
             <div class="col col-67">
-                <p class="name-movie">Aquaman</p>
-                <p class="horary horary-observation">14:45 - Todos Pagam R$5,00</p>
-                <p class="horary horary-normal">16:45 - 18:45 - 21:30</p>
+                <p class="name-movie">{{horary.MovieName}}</p>
+                <p ng-repeat="horaryObservation in horary.HorariesWithObservation" class="horary horary-observation {{horaryObservation.Idiom}}">{{horaryObservation.Horary}} - {{horaryObservation.Observation}}</p>
+                <p ng-repeat="horaryNormal in horary.NormalHoraries" class="horary horary-normal {{horaryNormal.Idiom}}">{{horaryNormal.Horary}}</p>
                 <p>
-                    <img src="../img/bg-3d.jpg" class="ico-3d">
-                    <span class="idiom">Dublado</span>
-                    <img src="../img/bg-classification-free.jpg" class="classification">    
-                </p>
-            </div>
-        </div>
-        <div class="row row-movie">
-            <div class="col col-33">
-                <img src="http://cinea.com.br/Images/Movies/116.jpg" width="100%">
-            </div>
-            <div class="col col-67">
-                <p class="name-movie">Aquaman</p>
-                <p class="horary horary-observation">14:45 - Todos Pagam R$5,00</p>
-                <p class="horary horary-normal">16:45 - 18:45 - 21:30</p>
-                <p>
-                    <img src="../img/bg-3d.jpg" class="ico-3d">
-                    <span class="idiom">Dublado</span>
-                    <img src="../img/bg-classification-free.jpg" class="classification">    
-                </p>
-            </div>
-        </div>
-        <div class="row row-movie">
-            <div class="col col-33">
-                <img src="http://cinea.com.br/Images/Movies/116.jpg" width="100%">
-            </div>
-            <div class="col col-67">
-                <p class="name-movie">Aquaman</p>
-                <p class="horary horary-observation">14:45 - Todos Pagam R$5,00</p>
-                <p class="horary horary-normal">16:45 - 18:45 - 21:30</p>
-                <p>
-                    <img src="../img/bg-3d.jpg" class="ico-3d">
-                    <span class="idiom">Dublado</span>
-                    <img src="../img/bg-classification-free.jpg" class="classification">    
+                    <span ng-show="horary.Is3D" class="ico-3d"></span>
+                    <span class="classification classification-free" ng-show="horary.IsClassificationFree"></span>
+                    <span class="classification classification-10" ng-show="horary.IsClassification10"></span>
+                    <span class="classification classification-12" ng-show="horary.IsClassification12"></span>
+                    <span class="classification classification-14" ng-show="horary.IsClassification14"></span>
+                    <span class="classification classification-16" ng-show="horary.IsClassification16"></span>
+                    <span class="classification classification-18" ng-show="horary.IsClassification18"></span>    
                 </p>
             </div>
         </div>

@@ -1,23 +1,23 @@
 angular.module('starter.controllers', [])
 
-.constant('URL_API', 'http://www.cinea.com.br/webapi')
-//.constant('URL_API', 'http://localhost:42550/webapi') 
+//.constant('URL_API', 'http://www.cinea.com.br/webapi')
+.constant('URL_API', 'http://localhost:42550/webapi') 
 .constant('SECURITY_TOKEN', 'Cine@1015!')
 
 .service("AppService", function ($http, URL_API) {
   this.getCities = function () {
-      var req = $http.get(URL_API + '/GetCities');
-      return req;
+    var req = $http.get(URL_API + '/GetCities');
+    return req;
   };
 
   this.getCitiesWithStates = function () {
-      var req = $http.get(URL_API + '/GetCitiesWithStates');
-      return req;
+    var req = $http.get(URL_API + '/GetCitiesWithStates');
+    return req;
   };
 
   this.getCityDetails = function (cityId) {
-      var req = $http.get(URL_API + '/GetCityDetails?cityId=' + cityId);
-      return req;
+    var req = $http.get(URL_API + '/GetCityDetails?cityId=' + cityId);
+    return req;
   };
 
   this.sendEmail = function(contactModel, SECURITY_TOKEN){
@@ -28,12 +28,20 @@ angular.module('starter.controllers', [])
   };
 
   this.getDatesHorary = function (cityId) {
-      var req = $http.get(URL_API + '/GetDatesHorary?cityId=' + cityId);
-      return req;
+    var req = $http.get(URL_API + '/GetDatesHorary?cityId=' + cityId);
+    return req;
   };
+
+  this.getProgramming = function(cityId, date) {
+    var req = $http.get(URL_API + '/GetProgrammingByCityAndDate?cityId=' + cityId + '&date=' + date);
+      return req;
+  }
 })
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
+.controller('MenuCtrl', function($scope, $ionicModal) {
+  $scope.CloseApplication = function () {
+    ionic.Platform.exitApp();
+  };
 })
 
 .controller('HomeCtrl', function($scope, AppService) {
@@ -190,11 +198,35 @@ angular.module('starter.controllers', [])
 .controller('TicketCtrl', function($scope) {
 })
 
-.controller('ProgrammingCtrl', function($scope, $http, $timeout, $stateParams, AppService, URL_API) {
+.controller('ProgrammingCtrl', function($scope, $http, $timeout, $stateParams, $ionicLoading, AppService, URL_API) {
   $scope.ShowFlexSlide = false;
 
-  $http.get(URL_API + '/GetDatesHorary?cityId=' + $stateParams.cityId).success(function (data) {
-    $scope.Dates = data;
+  $scope.Dates = [];
+  $scope.CityName = "";
+  $scope.Horaries = [];
+
+  function ShowLoading(){
+    $scope.loadingIndicator = $ionicLoading.show({
+        template: '<ion-spinner></ion-spinner>'
+    });
+  }
+
+  function HideLoading() {
+    $ionicLoading.hide();
+  };
+
+  ShowLoading();
+  var requestDates = AppService.getDatesHorary($stateParams.cityId);
+  requestDates.success(function (data) {
+    $scope.Dates = data.DateProgrammings;
+    $scope.CityName = data.CityName;
+
+    var requestProgramming = AppService.getProgramming($stateParams.cityId, $scope.Dates[0].Date);
+    requestProgramming.success(function (programming){
+      $scope.Horaries = programming.horaries;
+
+      HideLoading();
+    });
 
     $timeout(function(){
         $('.flexslider-horaries').flexslider({

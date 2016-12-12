@@ -285,16 +285,11 @@ p, a {
   color: #000;
   font-size: 100%;
   margin-bottom: 10px;
-  padding-left: 25px; 
+  padding-left: 35px; 
 }
 
 .programming .row-movie p.horary.horary-observation {
-  background: transparent url("../img/bg-horary-obs.jpg") no-repeat left center;
   color: #920316;
-}
-
-.programming .row-movie p.horary.horary-normal {
-  background: transparent url("../img/bg-horary-normal.jpg") no-repeat left center;
 }
 
 .programming .row-movie .idiom {
@@ -304,5 +299,51 @@ p, a {
 }
 
 .programming .row-movie .ico-3d {
+  background: transparent url("../img/bg-3d.jpg") no-repeat left center;
+  display: inline-block;
+  height: 17px;
   margin-right: 10px;
+  width: 53px;
+}
+
+.programming .row-movie p.dub {
+  background: transparent url("../img/ico-dublado.jpg") no-repeat scroll left;
+}
+
+.programming .row-movie p.leg {
+  background: transparent url("../img/ico-legendado.jpg") no-repeat scroll left;
+}
+
+.programming .row-movie p.nac {
+  background: transparent url("../img/ico-nacional.jpg") no-repeat scroll left;
+}
+
+.programming .row-movie .classification {
+  display: inline-block;
+  height: 18px;
+  width: 16px;
+}
+
+.programming .row-movie .classification-free {
+  background: transparent url("../img/bg-classification-free.jpg") no-repeat left center;
+}
+
+.programming .row-movie .classification-10 {
+  background: transparent url("../img/bg-classification-10.jpg") no-repeat left center;
+}
+
+.programming .row-movie .classification-12 {
+  background: transparent url("../img/bg-classification-12.jpg") no-repeat left center;
+}
+
+.programming .row-movie .classification-14 {
+  background: transparent url("../img/bg-classification-14.jpg") no-repeat left center;
+}
+
+.programming .row-movie .classification-16 {
+  background: transparent url("../img/bg-classification-16.jpg") no-repeat left center;
+}
+
+.programming .row-movie .classification-18 {
+  background: transparent url("../img/bg-classification-18.jpg") no-repeat left center;
 }
