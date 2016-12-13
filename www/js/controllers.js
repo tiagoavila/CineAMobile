@@ -272,4 +272,8 @@ angular.module('starter.controllers', [])
         HideLoading();
     });
   };
+})
+
+.controller('MovieDetailCtrl', function ($scope, $stateParams, $sce, AppService) {
+
 });
