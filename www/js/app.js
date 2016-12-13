@@ -114,6 +114,15 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         controller: 'ProgrammingCtrl'
       }
     }
+  })
+  .state('app.moviedetail', {
+      url: '/moviedetail/{cityId}',
+      views: {
+          'menuContent': {
+              templateUrl: 'templates/moviedetail.html',
+              controller: 'MovieDetailCtrl'
+          }
+      }
   });
 
   // if none of the above states are matched, use this as the fallback
