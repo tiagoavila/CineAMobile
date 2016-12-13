@@ -14,6 +14,11 @@ p, a {
     top: 80px;
 }
 
+input::-moz-placeholder, 
+textarea::-moz-placeholder {
+  color: #333;
+}
+
 /*Barra de título*/
 .bar-header.bar-assertive{
     border-color: #73010b !important;
@@ -140,14 +145,10 @@ p, a {
   height: 50%;
 }
 
-/*Formulário de contato*/
-.contact input::-moz-placeholder, 
-.contact textarea::-moz-placeholder {
-  color: #333;
-}
-
 /*Ingresso*/
-.ticket img {
+.ticket .img-ingresso-com {
+  background: transparent url("../img/ingresso-com.png") no-repeat scroll center center;
+  height: 102px;
   margin-bottom: 30px;
   margin-top: 40px;
 }
@@ -235,14 +236,9 @@ p, a {
     text-transform: uppercase;
 }
 
-.programming .box-date-horaries .flexslider-horaries .slides li.active {
-    background-color: #c33131;
-    color: #fff;
-    cursor: pointer;
-}
-
+.programming .box-date-horaries .flexslider-horaries .slides li.active,
 .programming .box-date-horaries .flexslider-horaries .slides li:hover {
-    background-color: gray;
+    background-color: #c33131;
     color: #fff;
     cursor: pointer;
 }
@@ -307,15 +303,15 @@ p, a {
 }
 
 .programming .row-movie p.dub {
-  background: transparent url("../img/ico-dublado.jpg") no-repeat scroll left;
+  background: transparent url("../img/ico-dublado.jpg") no-repeat scroll left top;
 }
 
 .programming .row-movie p.leg {
-  background: transparent url("../img/ico-legendado.jpg") no-repeat scroll left;
+  background: transparent url("../img/ico-legendado.jpg") no-repeat scroll left top;
 }
 
 .programming .row-movie p.nac {
-  background: transparent url("../img/ico-nacional.jpg") no-repeat scroll left;
+  background: transparent url("../img/ico-nacional.jpg") no-repeat scroll left top;
 }
 
 .programming .row-movie .classification {
