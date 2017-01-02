@@ -27,6 +27,10 @@
                 <p ng-repeat="horaryObservation in horary.HorariesWithObservation" class="horary horary-observation {{horaryObservation.Idiom}}">{{horaryObservation.Horary}} - {{horaryObservation.Observation}}</p>
                 <p ng-repeat="horaryNormal in horary.NormalHoraries" class="horary horary-normal {{horaryNormal.Idiom}}">{{horaryNormal.Horary}}</p>
                 <p>
+                    <a ng-click="openTrailler(horary.LinkTrailerMobile, horary.MovieName)"><img src="../img/link-trailer.jpg" width="90"></a>
+                    <a href="#/app/ticket"><img src="../img/link-ticket.jpg" width="90"></a>
+                </p>
+                <p>
                     <span ng-show="horary.Is3D" class="ico-3d"></span>
                     <span class="classification classification-free" ng-show="horary.IsClassificationFree"></span>
                     <span class="classification classification-10" ng-show="horary.IsClassification10"></span>
@@ -39,3 +43,17 @@
         </div>
     </ion-content>
 </ion-view>
+
+<script id="my-modal.html" type="text/ng-template"> 
+  <ion-modal-view>
+    <ion-header-bar class="bar bar-header bar-assertive">
+      <h1 class="title">{{movieNameToTrailer}}</h1>
+      <button class="button button-clear button-primary" ng-click="modal.hide()">Fechar</button>
+    </ion-header-bar>
+    <ion-content class="padding">
+      <div class="video-container">
+          <iframe width="100%" height="315" ng-src="{{url}}" frameborder="0"></iframe>
+      </div>
+    </ion-content>
+  </ion-modal-view>
+</script>

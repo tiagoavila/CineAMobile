@@ -203,7 +203,7 @@ angular.module('starter.controllers', [])
 .controller('TicketCtrl', function($scope) {
 })
 
-.controller('ProgrammingCtrl', function($scope, $http, $timeout, $stateParams, $ionicLoading, AppService, URL_API) {
+.controller('ProgrammingCtrl', function($scope, $http, $timeout, $stateParams, $ionicLoading, $ionicModal, $sce, AppService, URL_API) {
   $scope.ShowFlexSlide = false;
 
   $scope.Dates = [];
@@ -271,6 +271,27 @@ angular.module('starter.controllers', [])
         $scope.Horaries = programming.horaries;
         HideLoading();
     });
+  };
+
+  $ionicModal.fromTemplateUrl('my-modal.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function(modal) {
+    $scope.modal = modal;
+  });
+
+  $scope.openModal = function() {
+    $scope.modal.show();
+  };
+
+  $scope.closeModal = function() {
+    $scope.modal.hide();
+  };
+
+  $scope.openTrailler = function(urlTrailer, movieName) {
+    $scope.url = $sce.trustAsResourceUrl(urlTrailer);
+    $scope.movieNameToTrailer = movieName;
+    $scope.modal.show();
   };
 })
 

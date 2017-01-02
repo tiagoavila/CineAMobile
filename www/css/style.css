@@ -19,16 +19,26 @@ textarea::-moz-placeholder {
   color: #333;
 }
 
-/*Barra de título*/
-.bar-header.bar-assertive{
+/*Barra de título principal*/
+.bar-header.bar-assertive.main-bar{
     border-color: #73010b !important;
     background-color: #73010b !important;
     height: 80px;
 }
 
-.bar-header.bar-assertive .title{
+.bar-header.bar-assertive.main-bar .title{
     background: #73010b url("../img/logo-cinea2.jpg") no-repeat scroll center center !important;
     height: 80px;
+}
+
+/*Barras de títulos geral*/
+.bar-header.bar-assertive{
+    border-color: #73010b !important;
+    background-color: #73010b !important;
+}
+
+.bar-header.bar-assertive.main-bar .title{
+    background-color: #73010b;
 }
 
 .button-assertive{
