@@ -353,3 +353,17 @@ textarea::-moz-placeholder {
 .programming .row-movie .classification-18 {
   background: transparent url("../img/bg-classification-18.jpg") no-repeat left center;
 }
+
+.programming .btn-trailer {
+  background: transparent url("../img/link-trailer.jpg") no-repeat left center;
+  display: inline-block;
+  height: 42px;
+  width: 90px;
+}
+
+.programming .btn-ticket {
+  background: transparent url("../img/link-ticket.jpg") no-repeat left center;
+  display: inline-block;
+  height: 42px;
+  width: 90px;
+}

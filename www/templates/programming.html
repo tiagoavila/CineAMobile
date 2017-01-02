@@ -27,10 +27,6 @@
                 <p ng-repeat="horaryObservation in horary.HorariesWithObservation" class="horary horary-observation {{horaryObservation.Idiom}}">{{horaryObservation.Horary}} - {{horaryObservation.Observation}}</p>
                 <p ng-repeat="horaryNormal in horary.NormalHoraries" class="horary horary-normal {{horaryNormal.Idiom}}">{{horaryNormal.Horary}}</p>
                 <p>
-                    <a ng-click="openTrailler(horary.LinkTrailerMobile, horary.MovieName)"><img src="../img/link-trailer.jpg" width="90"></a>
-                    <a href="#/app/ticket"><img src="../img/link-ticket.jpg" width="90"></a>
-                </p>
-                <p>
                     <span ng-show="horary.Is3D" class="ico-3d"></span>
                     <span class="classification classification-free" ng-show="horary.IsClassificationFree"></span>
                     <span class="classification classification-10" ng-show="horary.IsClassification10"></span>
@@ -38,6 +34,10 @@
                     <span class="classification classification-14" ng-show="horary.IsClassification14"></span>
                     <span class="classification classification-16" ng-show="horary.IsClassification16"></span>
                     <span class="classification classification-18" ng-show="horary.IsClassification18"></span>    
+                </p>
+                <p>
+                    <a class="btn-trailer" ng-click="openTrailler(horary.LinkTrailerMobile, horary.MovieName)"></a>
+                    <a class="btn-ticket" href="#/app/ticket"></a>
                 </p>
             </div>
         </div>
