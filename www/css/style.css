@@ -87,6 +87,11 @@ textarea::-moz-placeholder {
   color: #fff;
 }
 
+.city-list li a {
+  color: #e0e0e0;
+  text-decoration: none;
+}
+
 .city-list.ng-hide-remove {
   -webkit-animation: 2s show;
   animation: 2s show;
@@ -366,4 +371,24 @@ textarea::-moz-placeholder {
   display: inline-block;
   height: 42px;
   width: 90px;
+}
+
+/*Movies*/
+.movies .bar-dark {
+  border-top: 2px solid #fff;
+}
+.movies .bar-dark .button {
+  background-color: #1f1f1f !important;
+}
+
+.movies .button-bar > .button:first-child {
+  border-radius: 0;
+}
+
+.movies .button-bar > .button:last-child {
+  border-radius: 0;
+}
+
+.movies .bar-dark .button.active {
+  background: #650313 url("../img/bg-button-tab-movies-active.jpg") no-repeat left center;
 }
