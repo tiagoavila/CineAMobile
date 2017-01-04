@@ -397,3 +397,22 @@ textarea::-moz-placeholder {
 .promotion img {
   margin-bottom: 7px;
 }
+
+.search-box{
+    background-color:#000;   
+}
+
+.search-box input{
+     color:#FFF;
+     font-size:1.2em;     
+}
+
+*::-webkit-input-placeholder {
+  color: #FFF !important;
+}
+*::-moz-placeholder {
+  color: #FFF !important;
+}
+*:-ms-input-placeholder { /* IE10+ */
+  color: #FFF !important;
+}
