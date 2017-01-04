@@ -1,7 +1,7 @@
 angular.module('starter.controllers', [])
 
-//.constant('URL_API', 'http://www.cinea.com.br/webapi')
-.constant('URL_API', 'http://localhost:42550/webapi') 
+.constant('URL_API', 'http://www.cinea.com.br/webapi')
+//.constant('URL_API', 'http://localhost:42550/webapi') 
 .constant('SECURITY_TOKEN', 'Cine@1015!')
 
 .service("AppService", function ($http, URL_API) {
@@ -37,15 +37,15 @@ angular.module('starter.controllers', [])
       return req;
   };
 
-  this.searchMovies = function(query) {
-    var req = $http.get(URL_API + '/SearchMovies?query=' + query);
+  this.getMovieDetails = function (movieId) {      
+      var req = $http.get(URL_API + '/GetMovieDetails?Id=' + movieId);
       return req;
   };
 
-  this.getPromotionalBanners = function () {
-    var req = $http.get(URL_API + '/GetPromotionalBanners');
-    return req;
-  };
+  this.searchMovies = function (query) {
+      var req = $http.get(URL_API + '/SearchMovies?query=' + query);
+      return req;
+  }
 })
 
 .controller('MenuCtrl', function($scope, $ionicModal) {
@@ -329,6 +329,7 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('MovieDetailCtrl', function ($scope, $stateParams, $sce, AppService) {
+// .controller('MovieDetailCtrl', function ($scope, $stateParams, $sce, AppService) {
 
-});
+// });
+;
