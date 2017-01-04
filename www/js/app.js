@@ -116,7 +116,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     }
   })
   .state('app.moviedetail', {
-      url: '/moviedetail/{cityId}',
+      url: '/moviedetail/{movieId}',
       views: {
           'menuContent': {
               templateUrl: 'templates/moviedetail.html',

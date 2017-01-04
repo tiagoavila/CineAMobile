@@ -13,8 +13,10 @@
     </div>
     <ion-list>
       <ion-item ng-repeat="movie in Movies">
-        {{movie.Name}}
-      </ion-item>
+          <a class="item item-icon-right" href="#/app/moviedetail/{{movie.Id}}">
+              {{movie.Name}}
+           </a>
+    </ion-item>
     </ion-list>
   </ion-content>
 </ion-view>
