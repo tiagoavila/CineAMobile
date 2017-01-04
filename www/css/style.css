@@ -392,3 +392,8 @@ textarea::-moz-placeholder {
 .movies .bar-dark .button.active {
   background: #650313 url("../img/bg-button-tab-movies-active.jpg") no-repeat left center;
 }
+
+/*Promotions*/
+.promotion img {
+  margin-bottom: 7px;
+}
