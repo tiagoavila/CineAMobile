@@ -341,4 +341,26 @@ angular.module('starter.controllers', [])
          $scope.Movie = data;
          $scope.url = $sce.trustAsResourceUrl(data.LinkTrailer);
      });
+
+     GetListCities($scope, AppService);
  });
+
+function GetListCities($scope, AppService)
+{
+    $scope.ShowMenu = false;
+
+    $scope.ShowOrHideMenu = function () {
+        $scope.ShowMenu = !$scope.ShowMenu;
+    };
+
+    $scope.HideMenu = function () {
+        $scope.ShowMenu = false;
+    };
+
+    $scope.Cities = [];
+
+    var citiesRequest = AppService.getCities();
+    citiesRequest.success(function (data) {
+        $scope.Cities = data;
+    });
+}
