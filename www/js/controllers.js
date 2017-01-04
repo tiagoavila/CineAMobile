@@ -329,7 +329,6 @@ angular.module('starter.controllers', [])
   };
 })
 
-// .controller('MovieDetailCtrl', function ($scope, $stateParams, $sce, AppService) {
+ .controller('MovieDetailCtrl', function ($scope, $stateParams, $sce, AppService) {
 
-// });
-;
+ });
