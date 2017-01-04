@@ -19,16 +19,26 @@ textarea::-moz-placeholder {
   color: #333;
 }
 
-/*Barra de título*/
-.bar-header.bar-assertive{
+/*Barra de título principal*/
+.bar-header.bar-assertive.main-bar{
     border-color: #73010b !important;
     background-color: #73010b !important;
     height: 80px;
 }
 
-.bar-header.bar-assertive .title{
+.bar-header.bar-assertive.main-bar .title{
     background: #73010b url("../img/logo-cinea2.jpg") no-repeat scroll center center !important;
     height: 80px;
+}
+
+/*Barras de títulos geral*/
+.bar-header.bar-assertive{
+    border-color: #73010b !important;
+    background-color: #73010b !important;
+}
+
+.bar-header.bar-assertive.main-bar .title{
+    background-color: #73010b;
 }
 
 .button-assertive{
@@ -75,6 +85,11 @@ textarea::-moz-placeholder {
 .city-list li {
   background-color: #444;
   color: #fff;
+}
+
+.city-list li a {
+  color: #e0e0e0;
+  text-decoration: none;
 }
 
 .city-list.ng-hide-remove {
@@ -342,4 +357,38 @@ textarea::-moz-placeholder {
 
 .programming .row-movie .classification-18 {
   background: transparent url("../img/bg-classification-18.jpg") no-repeat left center;
+}
+
+.programming .btn-trailer {
+  background: transparent url("../img/link-trailer.jpg") no-repeat left center;
+  display: inline-block;
+  height: 42px;
+  width: 90px;
+}
+
+.programming .btn-ticket {
+  background: transparent url("../img/link-ticket.jpg") no-repeat left center;
+  display: inline-block;
+  height: 42px;
+  width: 90px;
+}
+
+/*Movies*/
+.movies .bar-dark {
+  border-top: 2px solid #fff;
+}
+.movies .bar-dark .button {
+  background-color: #1f1f1f !important;
+}
+
+.movies .button-bar > .button:first-child {
+  border-radius: 0;
+}
+
+.movies .button-bar > .button:last-child {
+  border-radius: 0;
+}
+
+.movies .bar-dark .button.active {
+  background: #650313 url("../img/bg-button-tab-movies-active.jpg") no-repeat left center;
 }

@@ -90,46 +90,42 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('MoviesCtrl', function($scope, $ionicModal, $sce) {  
+.controller('MoviesCtrl', function($scope, AppService) {
+  $scope.ShowMenu = false;
 
-  $ionicModal.fromTemplateUrl('my-modal.html', {
-    scope: $scope,
-    animation: 'slide-in-up'
-  }).then(function(modal) {
-    $scope.modal = modal;
-  });
-
-  $scope.openModal = function() {
-    $scope.modal.show();
+  $scope.ShowOrHideMenu = function(){
+    $scope.ShowMenu = !$scope.ShowMenu;
   };
 
-  $scope.closeModal = function() {
-    $scope.modal.hide();
+  $scope.HideMenu = function(){
+    $scope.ShowMenu = false;
   };
 
-  $scope.openTraillerPowerRangers = function() {
-    $scope.url = $sce.trustAsResourceUrl("https://www.youtube.com/embed/VdnvEicwJvU");
-    $scope.modal.show();
+  $scope.Cities = []; 
+
+  var citiesRequest = AppService.getCities();
+  citiesRequest.success(function (data) {
+      $scope.Cities = data;
+  });
+
+  $scope.ListOnDisplayIsVisible = true;
+  $scope.ListComingSoonIsVisible = false;
+
+  $scope.ShowListOnDisplay = function () {
+    $(".btn-show-list-on-display").addClass("active");
+    $(".btn-show-list-coming-soon").removeClass("active");
+
+    $scope.ListOnDisplayIsVisible = true;
+    $scope.ListComingSoonIsVisible = false;
   };
 
-  $scope.openTraillerDoctor = function() {
-    $scope.url = $sce.trustAsResourceUrl("https://www.youtube.com/embed/YUfWrIcX4zw");
-    $scope.modal.show();
+  $scope.ShowListComingSoon = function () {
+    $(".btn-show-list-on-display").removeClass("active");
+    $(".btn-show-list-coming-soon").addClass("active");
+
+    $scope.ListOnDisplayIsVisible = false;
+    $scope.ListComingSoonIsVisible = true;
   };
-
-  // Cleanup the modal when we're done with it!
-  $scope.$on('$destroy', function() {
-    $scope.modal.remove();
-  });
-  // Execute action on hide modal
-  $scope.$on('modal.hidden', function() {
-    // Execute action
-  });
-  // Execute action on remove modal
-  $scope.$on('modal.removed', function() {
-    // Execute action
-  });
-
 })
 
 .controller('MovieTheatersCtrl', function($scope, $state, $ionicLoading, AppService) {
@@ -209,7 +205,7 @@ angular.module('starter.controllers', [])
 .controller('TicketCtrl', function($scope) {
 })
 
-.controller('ProgrammingCtrl', function($scope, $http, $timeout, $stateParams, $ionicLoading, AppService, URL_API) {
+.controller('ProgrammingCtrl', function($scope, $http, $timeout, $stateParams, $ionicLoading, $ionicModal, $sce, AppService, URL_API) {
   $scope.ShowFlexSlide = false;
 
   $scope.Dates = [];
@@ -277,6 +273,27 @@ angular.module('starter.controllers', [])
         $scope.Horaries = programming.horaries;
         HideLoading();
     });
+  };
+
+  $ionicModal.fromTemplateUrl('my-modal.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function(modal) {
+    $scope.modal = modal;
+  });
+
+  $scope.openModal = function() {
+    $scope.modal.show();
+  };
+
+  $scope.closeModal = function() {
+    $scope.modal.hide();
+  };
+
+  $scope.openTrailler = function(urlTrailer, movieName) {
+    $scope.url = $sce.trustAsResourceUrl(urlTrailer);
+    $scope.movieNameToTrailer = movieName;
+    $scope.modal.show();
   };
 })
 

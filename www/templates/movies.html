@@ -1,25 +1,41 @@
 <ion-view>
-  <ion-content>
-    <h1>Traillers</h1>
-    <button class="button button-positive" ng-click="openTraillerPowerRangers()">
-      Open trailler power
+  <ion-content class="movies">
+    <button class="button button-dark button-full icon-right ion-chevron-right btn-choose-your-city" ng-click="ShowOrHideMenu()">
+      Escolha sua cidade
     </button>
-    <button class="button button-positive" ng-click="openTraillerDoctor()">
-      Open trailler dr
-    </button>
+    <ul class="list city-list" ng-show="ShowMenu">
+      <li class="item" ng-repeat="city in Cities">
+        <a ng-click="HideMenu()" href="#/app/programming/{{city.Id}}">{{city.Name}}</a>
+      </li>
+    </ul>
+    <div class="button-bar bar-dark">
+      <a class="button active btn-show-list-on-display" ng-click="ShowListOnDisplay()">Em cartaz</a>
+      <a class="button btn-show-list-coming-soon" ng-click="ShowListComingSoon()">Em breve</a>
+    </div>
+    <div ng-show="ListOnDisplayIsVisible">
+      em cartaz
+      <div class="list">
+        <a class="item" href="#">
+          Butterfinger
+        </a>
+        <a class="item" href="#">
+          Butterfinger
+        </a>
+      </div>  
+    </div>
+    <div ng-show="ListComingSoonIsVisible">
+      breve
+      <div class="list">
+        <a class="item" href="#">
+          Butterfinger
+        </a>
+        <a class="item" href="#">
+          Butterfinger
+        </a>
+        <a class="item" href="#">
+          Butterfinger
+        </a>
+      </div> 
+    </div>
   </ion-content>
 </ion-view>
-
-<script id="my-modal.html" type="text/ng-template"> 
-  <ion-modal-view>
-    <ion-header-bar class="bar bar-header bar-positive">
-      <h1 class="title">Trailler</h1>
-      <button class="button button-clear button-primary" ng-click="modal.hide()">Fechar</button>
-    </ion-header-bar>
-    <ion-content class="padding">
-      <div class="video-container">
-          <iframe width="100%" height="315" ng-src="{{url}}" frameborder="0"></iframe>
-      </div>
-    </ion-content>
-  </ion-modal-view>
-</script>
