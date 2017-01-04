@@ -1,5 +1,13 @@
 <ion-view>
-  <ion-content>
-    <h1></h1>
+  <ion-content class="promotion">
+    <button class="button button-dark button-full icon-right ion-chevron-right btn-choose-your-city" ng-click="ShowOrHideMenu()">
+      Escolha sua cidade
+    </button>
+    <ul class="list city-list" ng-show="ShowMenu">
+      <li class="item" ng-repeat="city in Cities">
+        <a ng-click="HideMenu()" href="#/app/programming/{{city.Id}}">{{city.Name}}</a>
+      </li>
+    </ul>
+    <img ng-src="{{banner.Image}}" width="100%" ng-repeat="banner in bannersPromotion">
   </ion-content>
 </ion-view>

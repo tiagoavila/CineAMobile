@@ -1,7 +1,7 @@
 angular.module('starter.controllers', [])
 
 //.constant('URL_API', 'http://www.cinea.com.br/webapi')
-.constant('URL_API', 'http://localhost:42550/webapi')
+.constant('URL_API', 'http://localhost:42550/webapi') 
 .constant('SECURITY_TOKEN', 'Cine@1015!')
 
 .service("AppService", function ($http, URL_API) {
@@ -37,16 +37,15 @@ angular.module('starter.controllers', [])
       return req;
   };
 
-  this.getMovieDetails = function (movieId) {      
-      var req = $http.get(URL_API + '/GetMovieDetails?Id=' + movieId);
+  this.searchMovies = function(query) {
+    var req = $http.get(URL_API + '/SearchMovies?query=' + query);
       return req;
   };
 
-  this.searchMovies = function (query) {
-      var req = $http.get(URL_API + '/SearchMovies?query=' + query);
-      return req;
+  this.getPromotionalBanners = function () {
+    var req = $http.get(URL_API + '/GetPromotionalBanners');
+    return req;
   };
-
 })
 
 .controller('MenuCtrl', function($scope, $ionicModal) {
@@ -74,7 +73,40 @@ angular.module('starter.controllers', [])
   });
 })
 
-.controller('PromotionCtrl', function($scope, $stateParams) {
+.controller('PromotionCtrl', function($scope, $ionicLoading, AppService) {
+  $scope.ShowMenu = false;
+
+  $scope.ShowOrHideMenu = function(){
+    $scope.ShowMenu = !$scope.ShowMenu;
+  };
+
+  $scope.HideMenu = function(){
+    $scope.ShowMenu = false;
+  };
+
+  $scope.Cities = []; 
+
+  var citiesRequest = AppService.getCities();
+  citiesRequest.success(function (data) {
+      $scope.Cities = data;
+  });
+  
+  function ShowLoading(){
+    $scope.loadingIndicator = $ionicLoading.show({
+        template: '<ion-spinner></ion-spinner>'
+    });
+  }
+
+  function HideLoading() {
+    $ionicLoading.hide();
+  };
+
+  ShowLoading();
+  var bannerPromotionsRequest = AppService.getPromotionalBanners();
+  bannerPromotionsRequest.success(function(data) {
+    $scope.bannersPromotion = data;
+    HideLoading();
+  });
 })
 
 .controller('SearchCtrl', function($scope, AppService) {
@@ -298,11 +330,5 @@ angular.module('starter.controllers', [])
 })
 
 .controller('MovieDetailCtrl', function ($scope, $stateParams, $sce, AppService) {
-    
-    var moviesRequest = AppService.getMovieDetails($stateParams.movieId);
 
-    moviesRequest.success(function (data) {
-        $scope.Movie = data;
-        $scope.url = $sce.trustAsResourceUrl(data.LinkTrailer);
-    });
 });
