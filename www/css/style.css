@@ -390,7 +390,7 @@ textarea::-moz-placeholder {
 }
 
 .movies .bar-dark .button.active {
-  background: #650313 url("../img/bg-button-tab-movies-active.jpg") no-repeat left center;
+  background-color: #73010b !important;
 }
 
 /*Promotions*/
