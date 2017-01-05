@@ -292,6 +292,11 @@ textarea::-moz-placeholder {
   font-size: 140%;
 }
 
+.programming .row-movie p.name-movie a {
+  color: #000;
+  text-decoration: none;
+}
+
 .programming .row-movie p.horary {
   color: #000;
   font-size: 100%;
