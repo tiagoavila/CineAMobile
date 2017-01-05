@@ -1,7 +1,7 @@
 <ion-view>
   <ion-content class="search">
     <div class="list">
-      <label class="item item-input">
+      <label class="item item-input search-box">
         <input type="text"
              placeholder="Buscar..."
              ng-model="txtsearch"
@@ -12,9 +12,12 @@
       </label>
     </div>
     <ion-list>
-      <ion-item ng-repeat="movie in Movies">
-        {{movie.Name}}
-      </ion-item>
+      <ion-item ng-repeat="movie in Movies" class="item-borderless">
+          <a class="item item-icon-left item-borderless" href="#/app/moviedetail/{{movie.Id}}">
+              <i class="icon ion-film-marker"></i>
+              {{movie.Name}}
+           </a>
+    </ion-item>
     </ion-list>
   </ion-content>
 </ion-view>
