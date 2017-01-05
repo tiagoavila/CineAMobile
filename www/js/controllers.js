@@ -51,6 +51,11 @@ angular.module('starter.controllers', [])
         var req = $http.get(URL_API + '/GetPromotionalBanners');
         return req;
     };
+
+    this.getBannerMobile = function () {
+        var req = $http.get(URL_API + '/GetBannerMobile');
+        return req;
+    };
 })
 
 .controller('MenuCtrl', function ($scope, $ionicModal) {
@@ -60,41 +65,17 @@ angular.module('starter.controllers', [])
 })
 
 .controller('HomeCtrl', function ($scope, AppService) {
-    $scope.ShowMenu = false;
+    GetListCities($scope, AppService);
 
-    $scope.ShowOrHideMenu = function () {
-        $scope.ShowMenu = !$scope.ShowMenu;
-    };
-
-    $scope.HideMenu = function () {
-        $scope.ShowMenu = false;
-    };
-
-    $scope.Cities = [];
-
-    var citiesRequest = AppService.getCities();
-    citiesRequest.success(function (data) {
-        $scope.Cities = data;
+    var bannerMobileRequest = AppService.getBannerMobile();
+    bannerMobileRequest.success(function (data) {
+        $scope.BannerMobile = data.Image;
+        HideLoading();
     });
 })
 
 .controller('PromotionCtrl', function ($scope, $ionicLoading, AppService) {
-    $scope.ShowMenu = false;
-
-    $scope.ShowOrHideMenu = function () {
-        $scope.ShowMenu = !$scope.ShowMenu;
-    };
-
-    $scope.HideMenu = function () {
-        $scope.ShowMenu = false;
-    };
-
-    $scope.Cities = [];
-
-    var citiesRequest = AppService.getCities();
-    citiesRequest.success(function (data) {
-        $scope.Cities = data;
-    });
+    GetListCities($scope, AppService);
 
     function ShowLoading() {
         $scope.loadingIndicator = $ionicLoading.show({
