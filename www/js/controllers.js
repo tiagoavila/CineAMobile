@@ -315,13 +315,24 @@ angular.module('starter.controllers', [])
     };
 })
 
- .controller('MovieDetailCtrl', function ($scope, $stateParams, $sce, AppService) {
-     var moviesDetailsRequest = AppService.getMovieDetails($stateParams.movieId);    
+ .controller('MovieDetailCtrl', function ($scope, $stateParams, $sce, $ionicLoading, AppService) {
+    function ShowLoading() {
+        $scope.loadingIndicator = $ionicLoading.show({
+            template: '<ion-spinner></ion-spinner>'
+        });
+    }
 
-     moviesDetailsRequest.success(function (data) {
-         $scope.Movie = data;
-         $scope.url = $sce.trustAsResourceUrl(data.LinkTrailer);
-     });
+    function HideLoading() {
+        $ionicLoading.hide();
+    };
+
+    ShowLoading();
+    var moviesDetailsRequest = AppService.getMovieDetails($stateParams.movieId);    
+    moviesDetailsRequest.success(function (data) {
+        $scope.Movie = data;
+        $scope.url = $sce.trustAsResourceUrl(data.LinkTrailer);
+        HideLoading();
+    });
 
      GetListCities($scope, AppService);
  });
