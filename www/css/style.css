@@ -72,7 +72,10 @@ textarea::-moz-placeholder {
   margin-top: 15px;
 }
 
-.main-menu .item-complex .item-content, 
+.main-menu .item-complex .item-content { 
+  padding: 16px 10px 16px 40px;
+}
+
 .main-menu .item-radio .item-content {
   padding: 16px 10px;
 }
