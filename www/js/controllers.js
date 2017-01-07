@@ -1,7 +1,7 @@
 angular.module('starter.controllers', [])
 
-//.constant('URL_API', 'http://www.cinea.com.br/webapi')
-.constant('URL_API', 'http://localhost:42550/webapi')
+.constant('URL_API', 'http://www.cinea.com.br/webapi')
+//.constant('URL_API', 'http://localhost:42550/webapi')
 .constant('SECURITY_TOKEN', 'Cine@1015!')
 
 .service("AppService", function ($http, URL_API) {
@@ -42,6 +42,12 @@ angular.module('starter.controllers', [])
         return req;
     };
 
+    this.getMovies = function () {
+        var req = $http.get(URL_API + '/GetListOnDisplayAndCommingMovies');
+        return req;
+    };
+
+
     this.searchMovies = function (query) {
         var req = $http.get(URL_API + '/SearchMovies?query=' + query);
         return req;
@@ -65,34 +71,25 @@ angular.module('starter.controllers', [])
 })
 
 .controller('HomeCtrl', function ($scope, AppService) {
-    GetListCities($scope, AppService);
-
+    ShowLoading($scope, $ionicLoading);
     var bannerMobileRequest = AppService.getBannerMobile();
     bannerMobileRequest.success(function (data) {
         $scope.BannerMobile = data.Image;
-        HideLoading();
+        HideLoading($ionicLoading);
     });
+    
+    GetListCities($scope, AppService);
 })
 
-.controller('PromotionCtrl', function ($scope, $ionicLoading, AppService) {
-    GetListCities($scope, AppService);
-
-    function ShowLoading() {
-        $scope.loadingIndicator = $ionicLoading.show({
-            template: '<ion-spinner></ion-spinner>'
-        });
-    }
-
-    function HideLoading() {
-        $ionicLoading.hide();
-    };
-
-    ShowLoading();
+.controller('PromotionCtrl', function ($scope, $ionicLoading, AppService) {    
+    ShowLoading($scope, $ionicLoading);
     var bannerPromotionsRequest = AppService.getPromotionalBanners();
     bannerPromotionsRequest.success(function (data) {
         $scope.bannersPromotion = data;
-        HideLoading();
+        HideLoading($ionicLoading);
     });
+
+    GetListCities($scope, AppService);
 })
 
 .controller('SearchCtrl', function ($scope, AppService) {
@@ -108,33 +105,25 @@ angular.module('starter.controllers', [])
     };
 })
 
-.controller('MoviesCtrl', function ($scope, AppService) {
-    $scope.ShowMenu = false;
-
-    $scope.ShowOrHideMenu = function () {
-        $scope.ShowMenu = !$scope.ShowMenu;
-    };
-
-    $scope.HideMenu = function () {
-        $scope.ShowMenu = false;
-    };
-
-    $scope.Cities = [];
-
-    var citiesRequest = AppService.getCities();
-    citiesRequest.success(function (data) {
-        $scope.Cities = data;
-    });
+.controller('MoviesCtrl', function ($scope, AppService, $ionicLoading) {
+    ShowLoading($scope, $ionicLoading);
 
     $scope.ListOnDisplayIsVisible = true;
-    $scope.ListComingSoonIsVisible = false;
+    $scope.ListComingSoonIsVisible = false;    
+
+    var moviesRequest = AppService.getMovies();
+    moviesRequest.success(function (data) {
+        $scope.MoviesOnDisplay = data.moviesOnDisplay;
+        $scope.CommingMovies = data.commingMovies;
+        HideLoading($ionicLoading);
+    });
 
     $scope.ShowListOnDisplay = function () {
         $(".btn-show-list-on-display").addClass("active");
         $(".btn-show-list-coming-soon").removeClass("active");
 
         $scope.ListOnDisplayIsVisible = true;
-        $scope.ListComingSoonIsVisible = false;
+        $scope.ListComingSoonIsVisible = false;   
     };
 
     $scope.ShowListComingSoon = function () {
@@ -142,28 +131,20 @@ angular.module('starter.controllers', [])
         $(".btn-show-list-coming-soon").addClass("active");
 
         $scope.ListOnDisplayIsVisible = false;
-        $scope.ListComingSoonIsVisible = true;
+        $scope.ListComingSoonIsVisible = true;   
     };
+
+    GetListCities($scope, AppService);
+   
 })
 
 .controller('MovieTheatersCtrl', function ($scope, $state, $ionicLoading, AppService) {
-    function ShowLoading() {
-        $scope.loadingIndicator = $ionicLoading.show({
-            template: '<ion-spinner></ion-spinner>'
-        });
-    }
-
-    function HideLoading() {
-        $ionicLoading.hide();
-    };
-
-    $scope.Cities = [];
-
-    ShowLoading();
+    ShowLoading($scope, $ionicLoading);
+    $scope.Cities = [];    
     var citiesRequest = AppService.getCitiesWithStates();
     citiesRequest.success(function (data) {
         $scope.Cities = data;
-        HideLoading();
+        HideLoading($ionicLoading);
     });
 })
 
@@ -177,15 +158,7 @@ angular.module('starter.controllers', [])
 })
 
 .controller('ContactCtrl', function ($scope, $ionicLoading, AppService, SECURITY_TOKEN) {
-    function ShowLoading() {
-        $scope.loadingIndicator = $ionicLoading.show({
-            template: '<ion-spinner></ion-spinner>'
-        });
-    }
-
-    function HideLoading() {
-        $ionicLoading.hide();
-    };
+    ShowLoading($scope, $ionicLoading);
 
     $scope.ContactModel = {
         Name: "",
@@ -200,7 +173,7 @@ angular.module('starter.controllers', [])
 
             var contactRequest = AppService.sendEmail($scope.ContactModel, SECURITY_TOKEN);
             contactRequest.success(function (data) {
-                HideLoading();
+                HideLoading($ionicLoading);
                 alert("Contato enviado com sucesso.");
 
                 $scope.ContactModel = {
@@ -211,7 +184,7 @@ angular.module('starter.controllers', [])
                 };
 
             }).error(function () {
-                HideLoading();
+                HideLoading($ionicLoading);
                 alert("Erro ao enviar contato.");
             });
         } else {
@@ -221,6 +194,9 @@ angular.module('starter.controllers', [])
 })
 
 .controller('TicketCtrl', function ($scope) {
+    ShowLoading($scope, $ionicLoading);
+
+    HideLoading($ionicLoading);
 })
 
 .controller('ProgrammingCtrl', function ($scope, $http, $timeout, $stateParams, $ionicLoading, $ionicModal, $sce, AppService, URL_API) {
@@ -230,17 +206,8 @@ angular.module('starter.controllers', [])
     $scope.CityName = "";
     $scope.Horaries = [];
 
-    function ShowLoading() {
-        $scope.loadingIndicator = $ionicLoading.show({
-            template: '<ion-spinner></ion-spinner>'
-        });
-    }
+    ShowLoading($scope, $ionicLoading);
 
-    function HideLoading() {
-        $ionicLoading.hide();
-    };
-
-    ShowLoading();
     var requestDates = AppService.getDatesHorary($stateParams.cityId);
     requestDates.success(function (data) {
         $scope.Dates = data.DateProgrammings;
@@ -250,7 +217,7 @@ angular.module('starter.controllers', [])
         requestProgramming.success(function (programming) {
             $scope.Horaries = programming.horaries;
 
-            HideLoading();
+            HideLoading($ionicLoading);
         });
 
         $timeout(function () {
@@ -289,7 +256,7 @@ angular.module('starter.controllers', [])
         var programming = AppService.getProgramming($stateParams.cityId, date);
         programming.success(function (programming) {
             $scope.Horaries = programming.horaries;
-            HideLoading();
+            HideLoading($ionicLoading);
         });
     };
 
@@ -315,23 +282,14 @@ angular.module('starter.controllers', [])
     };
 })
 
- .controller('MovieDetailCtrl', function ($scope, $stateParams, $sce, $ionicLoading, AppService) {
-    function ShowLoading() {
-        $scope.loadingIndicator = $ionicLoading.show({
-            template: '<ion-spinner></ion-spinner>'
-        });
-    }
+ .controller('MovieDetailCtrl', function ($scope, $stateParams, $sce, $ionicLoading, AppService) {   
+    ShowLoading($scope, $ionicLoading);
 
-    function HideLoading() {
-        $ionicLoading.hide();
-    };
-
-    ShowLoading();
     var moviesDetailsRequest = AppService.getMovieDetails($stateParams.movieId);    
     moviesDetailsRequest.success(function (data) {
         $scope.Movie = data;
         $scope.url = $sce.trustAsResourceUrl(data.LinkTrailer);
-        HideLoading();
+        HideLoading($ionicLoading);
     });
 
      GetListCities($scope, AppService);
@@ -355,4 +313,15 @@ function GetListCities($scope, AppService)
     citiesRequest.success(function (data) {
         $scope.Cities = data;
     });
+}
+
+
+function ShowLoading($scope, $ionicLoading) {
+    $scope.loadingIndicator = $ionicLoading.show({
+        template: '<ion-spinner></ion-spinner>'
+    });
+}
+
+function HideLoading($ionicLoading) {
+    $ionicLoading.hide();
 }

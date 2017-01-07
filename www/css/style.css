@@ -207,8 +207,8 @@ textarea::-moz-placeholder {
   margin-bottom: 10px;
 }
 
-/*programming*/
-.programming .box-date-horaries {
+/*movies*/
+.movies .box-date-horaries {
     border: 1px solid #8a8a8a;
     height: 70px;
     margin-top: 15px;
@@ -216,35 +216,35 @@ textarea::-moz-placeholder {
     width: 100%;
 }
 
-.programming .box-date-horaries .flexslider-horaries {
+.movies .box-date-horaries .flexslider-horaries {
     height: 100%;
     margin: 0 auto;
     width: 80%;
 }
 
-.programming .box-date-horaries .btn-nav {
+.movies .box-date-horaries .btn-nav {
     height: 100%;
     position: absolute;
     top: 0;
     width: 10%;
 }
 
-.programming .box-date-horaries .btn-prev {
+.movies .box-date-horaries .btn-prev {
     background: transparent url("../img/btn-prev-horary.jpg") no-repeat center center; 
     left: 0;
 }
 
-.programming .box-date-horaries .btn-next {
+.movies .box-date-horaries .btn-next {
     background: transparent url("../img/btn-next-horary.jpg") no-repeat center center;
     right: 0;
 }
 
-.programming .box-date-horaries .flexslider-horaries .flex-viewport, 
-.programming .box-date-horaries .flexslider-horaries .slides {
+.movies .box-date-horaries .flexslider-horaries .flex-viewport, 
+.movies .box-date-horaries .flexslider-horaries .slides {
     height: 100%;
 }
 
-.programming .box-date-horaries .flexslider-horaries .slides li {
+.movies .box-date-horaries .flexslider-horaries .slides li {
     color: #070707;
     font-size: 100%;
     height: 100%;
@@ -254,14 +254,14 @@ textarea::-moz-placeholder {
     text-transform: uppercase;
 }
 
-.programming .box-date-horaries .flexslider-horaries .slides li.active,
-.programming .box-date-horaries .flexslider-horaries .slides li:hover {
+.movies .box-date-horaries .flexslider-horaries .slides li.active,
+.movies .box-date-horaries .flexslider-horaries .slides li:hover {
     background-color: #c33131;
     color: #fff;
     cursor: pointer;
 }
 
-.programming .box-date-horaries .flexslider-horaries .slides li:after {
+.movies .box-date-horaries .flexslider-horaries .slides li:after {
     background-color: #8a8a8a;
     content: "";
     float: right;
@@ -270,54 +270,54 @@ textarea::-moz-placeholder {
     width: 1px;
 }
 
-.programming .box-date-horaries .flexslider-horaries .slides li span {
+.movies .box-date-horaries .flexslider-horaries .slides li span {
     font-size: 120%;
 }
 
-.programming p.title {
+.movies p.title {
   color: #000;
   font-size: 140%;
   margin-top: 15px;
 }
 
-.programming .row-movie {
+.movies .row-movie {
   padding-bottom: 10px;
   padding-top: 10px;
 }
 
-.programming .row-movie .col {
+.movies .row-movie .col {
   border-bottom: 1px solid #666;
   padding-bottom: 10px;
 }
 
-.programming .row-movie p.name-movie {
+.movies .row-movie p.name-movie {
   color: #000;
   font-size: 140%;
 }
 
-.programming .row-movie p.name-movie a {
+.movies .row-movie p.name-movie a {
   color: #000;
   text-decoration: none;
 }
 
-.programming .row-movie p.horary {
+.movies .row-movie p.horary {
   color: #000;
   font-size: 100%;
   margin-bottom: 10px;
   padding-left: 35px; 
 }
 
-.programming .row-movie p.horary.horary-observation {
+.movies .row-movie p.horary.horary-observation {
   color: #920316;
 }
 
-.programming .row-movie .idiom {
+.movies .row-movie .idiom {
   background: transparent url("../img/bg-type-copy.jpg") no-repeat left center;
   margin-right: 10px;
   padding-left: 18px;
 }
 
-.programming .row-movie .ico-3d {
+.movies .row-movie .ico-3d {
   background: transparent url("../img/bg-3d.jpg") no-repeat left center;
   display: inline-block;
   height: 17px;
@@ -325,56 +325,56 @@ textarea::-moz-placeholder {
   width: 53px;
 }
 
-.programming .row-movie p.dub {
+.movies .row-movie p.dub {
   background: transparent url("../img/ico-dublado.jpg") no-repeat scroll left top;
 }
 
-.programming .row-movie p.leg {
+.movies .row-movie p.leg {
   background: transparent url("../img/ico-legendado.jpg") no-repeat scroll left top;
 }
 
-.programming .row-movie p.nac {
+.movies .row-movie p.nac {
   background: transparent url("../img/ico-nacional.jpg") no-repeat scroll left top;
 }
 
-.programming .row-movie .classification {
+.movies .row-movie .classification {
   display: inline-block;
   height: 18px;
   width: 16px;
 }
 
-.programming .row-movie .classification-free {
+.movies .row-movie .classification-free {
   background: transparent url("../img/bg-classification-free.jpg") no-repeat left center;
 }
 
-.programming .row-movie .classification-10 {
+.movies .row-movie .classification-10 {
   background: transparent url("../img/bg-classification-10.jpg") no-repeat left center;
 }
 
-.programming .row-movie .classification-12 {
+.movies .row-movie .classification-12 {
   background: transparent url("../img/bg-classification-12.jpg") no-repeat left center;
 }
 
-.programming .row-movie .classification-14 {
+.movies .row-movie .classification-14 {
   background: transparent url("../img/bg-classification-14.jpg") no-repeat left center;
 }
 
-.programming .row-movie .classification-16 {
+.movies .row-movie .classification-16 {
   background: transparent url("../img/bg-classification-16.jpg") no-repeat left center;
 }
 
-.programming .row-movie .classification-18 {
+.movies .row-movie .classification-18 {
   background: transparent url("../img/bg-classification-18.jpg") no-repeat left center;
 }
 
-.programming .btn-trailer {
+.movies .btn-trailer {
   background: transparent url("../img/link-trailer.jpg") no-repeat left center;
   display: inline-block;
   height: 42px;
   width: 90px;
 }
 
-.programming .btn-ticket {
+.movies .btn-ticket {
   background: transparent url("../img/link-ticket.jpg") no-repeat left center;
   display: inline-block;
   height: 42px;
@@ -423,4 +423,30 @@ textarea::-moz-placeholder {
 }
 *:-ms-input-placeholder { /* IE10+ */
   color: #FFF !important;
+}
+
+.movies p.title {
+  color: #000;
+  font-size: 140%;
+  margin-top: 15px;
+}
+
+.movies .row-movie {
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+.movies .row-movie .col {
+  border-bottom: 1px solid #666;
+  padding-bottom: 10px;
+}
+
+.movies .row-movie p.name-movie {
+  color: #000;
+  font-size: 140%;
+}
+
+.movies .row-movie p.name-movie a {
+  color: #000;
+  text-decoration: none;
 }
