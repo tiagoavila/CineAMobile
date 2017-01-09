@@ -23,12 +23,12 @@ textarea::-moz-placeholder {
 .bar-header.bar-assertive.main-bar{
     border-color: #73010b !important;
     background-color: #73010b !important;
-    height: 80px;
+    min-height: 80px !important;
 }
 
 .bar-header.bar-assertive.main-bar .title{
     background: #73010b url("../img/logo-cinea2.jpg") no-repeat scroll center center !important;
-    height: 80px;
+    min-height: 80px !important;
 }
 
 /*Barras de títulos geral*/

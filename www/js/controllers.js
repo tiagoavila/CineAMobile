@@ -1,7 +1,7 @@
 angular.module('starter.controllers', [])
 
-//.constant('URL_API', 'http://www.cinea.com.br/webapi')
-.constant('URL_API', 'http://localhost:42550/webapi')
+.constant('URL_API', 'http://www.cinea.com.br/webapi')
+//.constant('URL_API', 'http://localhost:42550/webapi')
 .constant('SECURITY_TOKEN', 'Cine@1015!')
 
 .service("AppService", function ($http, URL_API) {
