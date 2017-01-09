@@ -70,7 +70,7 @@ angular.module('starter.controllers', [])
     };
 })
 
-.controller('HomeCtrl', function ($scope, AppService) {
+.controller('HomeCtrl', function ($scope, $ionicLoading, AppService) {
     ShowLoading($scope, $ionicLoading);
     var bannerMobileRequest = AppService.getBannerMobile();
     bannerMobileRequest.success(function (data) {
@@ -158,8 +158,6 @@ angular.module('starter.controllers', [])
 })
 
 .controller('ContactCtrl', function ($scope, $ionicLoading, AppService, SECURITY_TOKEN) {
-    ShowLoading($scope, $ionicLoading);
-
     $scope.ContactModel = {
         Name: "",
         Email: "",
@@ -169,7 +167,7 @@ angular.module('starter.controllers', [])
 
     $scope.SendEmail = function () {
         if ($scope.ContactModel.Name != "" && $scope.ContactModel.Email != "" && $scope.ContactModel.Message != "") {
-            ShowLoading();
+            ShowLoading($scope, $ionicLoading);
 
             var contactRequest = AppService.sendEmail($scope.ContactModel, SECURITY_TOKEN);
             contactRequest.success(function (data) {
@@ -194,9 +192,6 @@ angular.module('starter.controllers', [])
 })
 
 .controller('TicketCtrl', function ($scope) {
-    ShowLoading($scope, $ionicLoading);
-
-    HideLoading($ionicLoading);
 })
 
 .controller('ProgrammingCtrl', function ($scope, $http, $timeout, $stateParams, $ionicLoading, $ionicModal, $sce, AppService, URL_API) {
