@@ -415,13 +415,13 @@ textarea::-moz-placeholder {
      font-size:1.2em;     
 }
 
-*::-webkit-input-placeholder {
+.search *::-webkit-input-placeholder {
   color: #FFF !important;
 }
-*::-moz-placeholder {
+.search *::-moz-placeholder {
   color: #FFF !important;
 }
-*:-ms-input-placeholder { /* IE10+ */
+.search  *:-ms-input-placeholder { /* IE10+ */
   color: #FFF !important;
 }
 

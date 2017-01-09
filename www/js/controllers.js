@@ -247,7 +247,7 @@ angular.module('starter.controllers', [])
         $(".flexslider-horaries li.active").removeClass("active");
         $event.currentTarget.className += " active";
 
-        ShowLoading();
+        ShowLoading($scope, $ionicLoading);
         var programming = AppService.getProgramming($stateParams.cityId, date);
         programming.success(function (programming) {
             $scope.Horaries = programming.horaries;
