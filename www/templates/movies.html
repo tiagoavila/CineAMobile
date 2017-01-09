@@ -1,41 +1,38 @@
 <ion-view>
-  <ion-content class="movies">
-    <button class="button button-dark button-full icon-right ion-chevron-right btn-choose-your-city" ng-click="ShowOrHideMenu()">
-      Escolha sua cidade
-    </button>
-    <ul class="list city-list" ng-show="ShowMenu">
-      <li class="item" ng-repeat="city in Cities">
-        <a ng-click="HideMenu()" href="#/app/programming/{{city.Id}}">{{city.Name}}</a>
-      </li>
-    </ul>
-    <div class="button-bar bar-dark">
-      <a class="button active btn-show-list-on-display" ng-click="ShowListOnDisplay()">Em cartaz</a>
-      <a class="button btn-show-list-coming-soon" ng-click="ShowListComingSoon()">Em breve</a>
-    </div>
-    <div ng-show="ListOnDisplayIsVisible">
-      em cartaz
-      <div class="list">
-        <a class="item" href="#">
-          Butterfinger
-        </a>
-        <a class="item" href="#">
-          Butterfinger
-        </a>
-      </div>  
-    </div>
-    <div ng-show="ListComingSoonIsVisible">
-      breve
-      <div class="list">
-        <a class="item" href="#">
-          Butterfinger
-        </a>
-        <a class="item" href="#">
-          Butterfinger
-        </a>
-        <a class="item" href="#">
-          Butterfinger
-        </a>
-      </div> 
-    </div>
-  </ion-content>
+    <ion-content class="movies">
+        <button class="button button-dark button-full icon-right ion-chevron-right btn-choose-your-city" ng-click="ShowOrHideMenu()">
+            Escolha sua cidade
+        </button>
+        <ul class="list city-list" ng-show="ShowMenu">
+            <li class="item" ng-repeat="city in Cities">
+                <a ng-click="HideMenu()" href="#/app/programming/{{city.Id}}">{{city.Name}}</a>
+            </li>
+        </ul>
+        <div class="button-bar bar-dark">
+            <a class="button active btn-show-list-on-display" ng-click="ShowListOnDisplay()">Em cartaz</a>
+            <a class="button btn-show-list-coming-soon" ng-click="ShowListComingSoon()">Em breve</a>
+        </div>
+        <div class="moviesDisplay" ng-show="ListOnDisplayIsVisible">
+            <div class="row row-movie" ng-repeat="movie in MoviesOnDisplay">
+                <div class="col col-33">
+                    <a href="#/app/moviedetail/{{movie.Id}}"><img ng-src="{{movie.Image}}" width="100%"></a>
+                </div>
+                <div class="col col-67">
+                    <p class="name-movie"><a href="#/app/moviedetail/{{movie.Id}}">{{movie.Name}}</a></p>                   
+                </div>
+            </div>
+
+        </div>
+        <div ng-show="ListComingSoonIsVisible">
+            <div class="row row-movie" ng-repeat="movie in CommingMovies">
+                <div class="col col-33">
+                    <a href="#/app/moviedetail/{{movie.Id}}"><img ng-src="{{movie.Image}}" width="100%"></a>
+                </div>
+                <div class="col col-67">
+                    <p class="name-movie"><a href="#/app/moviedetail/{{movie.Id}}">{{movie.Name}}</a></p>                    
+                </div>
+            </div>
+        </div>
+
+    </ion-content>
 </ion-view>
