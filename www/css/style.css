@@ -27,7 +27,7 @@ textarea::-moz-placeholder {
 }
 
 .bar-header.bar-assertive.main-bar .title{
-    background: #73010b url("../img/logo-cinea2.jpg") no-repeat scroll center center !important;
+    background: #73010b url("../img/logo-cinea2.jpg") no-repeat scroll center top !important;
     min-height: 80px !important;
 }
 
