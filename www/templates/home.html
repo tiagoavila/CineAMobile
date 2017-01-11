@@ -1,35 +1,27 @@
 <ion-view>
-  <ion-content class="home">
-    <button class="button button-dark button-full icon-right ion-chevron-right btn-choose-your-city" ng-click="ShowOrHideMenu()">
-      Escolha sua cidade
-    </button>
-    <ul class="list city-list" ng-show="ShowMenu">
-      <li class="item" ng-repeat="city in Cities">
-        <a ng-click="HideMenu()" href="#/app/programming/{{city.Id}}">{{city.Name}}</a>
-      </li>
-    </ul>
-    <img ng-src="{{BannerMobile}}" width="100%">
-    <!--<p class="p-title in-poster">Em cartaz</p>
-    <div class="row">
-      <div class="col col-33"><a href="#/app/ticket"><img src="http://cinea.com.br/Images/Movies/116.jpg" width="100%">Doutor Estranho</a></div>
-      <div class="col col-33"><a href="#/app/ticket"><img src="http://cinea.com.br/Images/Movies/116.jpg" width="100%">Animais Fantásticos e Onde Habitam </a></div>
-      <div class="col col-33"><a href="#/app/ticket"><img src="http://cinea.com.br/Images/Movies/116.jpg" width="100%">.col.col-75</a></div>
-    </div>
-    <div class="row">
-      <div class="col col-33"><a href="#/app/ticket"><img src="http://cinea.com.br/Images/Movies/116.jpg" width="100%">.col.col-75</a></div>
-      <div class="col col-33"><a href="#/app/ticket"><img src="http://cinea.com.br/Images/Movies/116.jpg" width="100%">.col.col-75</a></div>
-      <div class="col col-33"><a href="#/app/ticket"><img src="http://cinea.com.br/Images/Movies/116.jpg" width="100%">.col.col-75</a></div>
-    </div>
-    <p class="p-title coming-soon">Em breve</p>
-    <div class="row">
-      <div class="col col-33"><a href="#/app/ticket"><img src="http://cinea.com.br/Images/Movies/116.jpg" width="100%">.col.col-75</a></div>
-      <div class="col col-33"><a href="#/app/ticket"><img src="http://cinea.com.br/Images/Movies/116.jpg" width="100%">.col.col-75</a></div>
-      <div class="col col-33"><a href="#/app/ticket"><img src="http://cinea.com.br/Images/Movies/116.jpg" width="100%">.col.col-75</a></div>
-    </div>
-    <div class="row">
-      <div class="col col-33"><a href="#/app/ticket"><img src="http://cinea.com.br/Images/Movies/116.jpg" width="100%">.col.col-75</a></div>
-      <div class="col col-33"><a href="#/app/ticket"><img src="http://cinea.com.br/Images/Movies/116.jpg" width="100%">.col.col-75</a></div>
-      <div class="col col-33"><a href="#/app/ticket"><img src="http://cinea.com.br/Images/Movies/116.jpg" width="100%">.col.col-75</a></div>
-    </div>-->
-  </ion-content>
+    <ion-content class="home">
+        <button class="button button-dark button-full icon-right ion-chevron-right btn-choose-your-city" ng-click="ShowOrHideMenu()">
+            Escolha sua cidade
+        </button>
+        <ul class="list city-list" ng-show="ShowMenu">
+            <li class="item" ng-repeat="city in Cities">
+                <a ng-click="HideMenu()" href="#/app/programming/{{city.Id}}">{{city.Name}}</a>
+            </li>
+        </ul>
+        <img ng-src="{{BannerMobile}}" width="100%">
+        <p class="p-title in-poster">Em cartaz</p>
+        <div class="row">
+            <div class="col col-33" ng-repeat="movie in HomeMovies.moviesOnDisplay1To3"><a href="#/app/moviedetail/{{movie.Id}}"><img ng-src="{{movie.UrlImage}}" width="100%">{{movie.Name}}</a></div>
+        </div>
+        <div class="row">
+            <div class="col col-33" ng-repeat="movie in HomeMovies.moviesOnDisplay4To6"><a href="#/app/moviedetail/{{movie.Id}}"><img ng-src="{{movie.UrlImage}}" width="100%">{{movie.Name}}</a></div>
+        </div>
+        <p class="p-title coming-soon">Em breve</p>
+        <div class="row">
+            <div class="col col-33" ng-repeat="movie in HomeMovies.commingMovies1To3"><a href="#/app/moviedetail/{{movie.Id}}"><img ng-src="{{movie.UrlImage}}" width="100%">{{movie.Name}}</a></div>
+        </div>
+        <div class="row">
+            <div class="col col-33" ng-repeat="movie in HomeMovies.commingMovies4To6"><a href="#/app/moviedetail/{{movie.Id}}"><img ng-src="{{movie.UrlImage}}" width="100%">{{movie.Name}}</a></div>
+        </div>
+    </ion-content>
 </ion-view>
