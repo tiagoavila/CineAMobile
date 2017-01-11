@@ -62,6 +62,11 @@ angular.module('starter.controllers', [])
         var req = $http.get(URL_API + '/GetBannerMobile');
         return req;
     };
+
+    this.getHomeMovies = function () {
+        var req = $http.get(URL_API + '/GetMoviesToHome');
+        return req;
+    };
 })
 
 .controller('MenuCtrl', function ($scope, $ionicModal) {
@@ -72,9 +77,15 @@ angular.module('starter.controllers', [])
 
 .controller('HomeCtrl', function ($scope, $ionicLoading, AppService) {
     ShowLoading($scope, $ionicLoading);
+
     var bannerMobileRequest = AppService.getBannerMobile();
     bannerMobileRequest.success(function (data) {
-        $scope.BannerMobile = data.Image;
+        $scope.BannerMobile = data.Image;        
+    });
+
+    var homeMoviesRequest = AppService.getHomeMovies();
+    homeMoviesRequest.success(function (data) {
+        $scope.HomeMovies = data;
         HideLoading($ionicLoading);
     });
     
