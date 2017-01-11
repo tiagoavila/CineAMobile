@@ -165,7 +165,7 @@ textarea::-moz-placeholder {
 
 /*Ingresso*/
 .ticket .img-ingresso-com {
-  background: transparent url("../img/ingresso-com.png") no-repeat scroll center center;
+  background: transparent url("../img/velox.jpg") no-repeat scroll center center;
   height: 102px;
   margin-bottom: 30px;
   margin-top: 40px;
@@ -185,6 +185,7 @@ textarea::-moz-placeholder {
 .home .p-title {
   background-color: #292929;
   color: #e0e0e0;
+  margin-top: -4px; 
   padding: 5px 0 5px 8px;
 }
 
@@ -193,7 +194,7 @@ textarea::-moz-placeholder {
 }
 
 .home .coming-soon {
-  background: #610313 url("../img/bg-comming-soon.jpg") no-repeat scroll center center;
+  background: #74020c url("../img/bg-comming-soon.jpg") no-repeat scroll center center;
 }
 
 .home a {
@@ -398,7 +399,7 @@ textarea::-moz-placeholder {
 }
 
 .movies .bar-dark .button.active {
-  background-color: #73010b !important;
+  background: #7b010c url("../img/bg-button-tab-movies-active.jpg") no-repeat center center !important;
 }
 
 /*Promotions*/
