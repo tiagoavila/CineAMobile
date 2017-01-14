@@ -186,6 +186,8 @@ textarea::-moz-placeholder {
   background-color: #292929;
   color: #e0e0e0;
   padding: 5px 0 5px 8px;
+  font-size:1.3em;
+  font-weight: bold;
 }
 
 .home .in-poster {
