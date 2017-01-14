@@ -328,6 +328,22 @@ textarea::-moz-placeholder {
   width: 53px;
 }
 
+.programming .row-movie .ico-4k {
+  background: transparent url("../img/logo-4k.jpg") no-repeat left center;
+  display: inline-block;
+  height: 20px;
+  margin-right: 10px;
+  width: 30px;
+}
+
+.programming .row-movie .ico-atmos {
+  background: transparent url("../img/logo-atmos.jpg") no-repeat left center;
+  display: inline-block;
+  height: 17px;
+  margin-right: 10px;
+  width: 40px;
+}
+
 .programming .row-movie p.dub {
   background: transparent url("../img/ico-dublado.jpg") no-repeat scroll left top;
 }

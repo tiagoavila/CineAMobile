@@ -28,6 +28,8 @@
                 <p ng-repeat="horaryNormal in horary.NormalHoraries" class="horary horary-normal {{horaryNormal.Idiom}}">{{horaryNormal.Horary}}</p>
                 <p>
                     <span ng-show="horary.Is3D" class="ico-3d"></span>
+                    <span ng-show="horary.Is4K" class="ico-4k"></span>
+                    <span ng-show="horary.IsAtmos" class="ico-atmos"></span>
                     <span class="classification classification-free" ng-show="horary.IsClassificationFree"></span>
                     <span class="classification classification-10" ng-show="horary.IsClassification10"></span>
                     <span class="classification classification-12" ng-show="horary.IsClassification12"></span>
