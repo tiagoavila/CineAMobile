@@ -202,7 +202,10 @@ angular.module('starter.controllers', [])
     };
 })
 
-.controller('TicketCtrl', function ($scope) {
+.controller('TicketCtrl', function ($scope, AppService) {
+
+    GetListCities($scope, AppService);
+
 })
 
 .controller('ProgrammingCtrl', function ($scope, $http, $timeout, $stateParams, $ionicLoading, $ionicModal, $sce, AppService, URL_API) {
