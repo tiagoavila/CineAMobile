@@ -96,14 +96,13 @@ textarea::-moz-placeholder {
 }
 
 /*City list*/
-.city-list li {
+.city-list a {
   background-color: #444;
-  color: #fff;
-}
-
-.city-list li a {
   color: #e0e0e0;
   text-decoration: none;
+  border: none;
+  text-align: left !important;
+  width: 100%;
 }
 
 .city-list.ng-hide-remove {

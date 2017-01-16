@@ -310,10 +310,17 @@ function GetListCities($scope, AppService)
 
     $scope.ShowOrHideMenu = function () {
         $scope.ShowMenu = !$scope.ShowMenu;
+
+        if($scope.ShowMenu){
+            $(".btn-choose-your-city").removeClass("ion-chevron-down").addClass("ion-chevron-up");
+        } else {
+            $(".btn-choose-your-city").removeClass("ion-chevron-up").addClass("ion-chevron-down");
+        }
     };
 
     $scope.HideMenu = function () {
         $scope.ShowMenu = false;
+        $(".btn-choose-your-city").removeClass("ion-chevron-up").addClass("ion-chevron-down");
     };
 
     $scope.Cities = [];

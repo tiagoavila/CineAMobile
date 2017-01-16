@@ -1,14 +1,14 @@
 ﻿<ion-view>    
     <ion-content class="movie-detail">
-        <button class="button button-dark button-full icon-right ion-chevron-right btn-choose-your-city" ng-click="ShowOrHideMenu()">
-            Escolha sua cidade
+        <button class="button button-dark button-full icon-right ion-chevron-down btn-choose-your-city" ng-click="ShowOrHideMenu()">
+            Programação
         </button>
-        <ul class="list city-list" ng-show="ShowMenu">
-            <li class="item" ng-repeat="city in Cities">
-                <a ng-click="HideMenu()" href="#/app/programming/{{city.Id}}">{{city.Name}}</a>
-            </li>
-        </ul>
-
+        <div class="list city-list" ng-show="ShowMenu">
+            <a ng-click="HideMenu()" ng-repeat="city in Cities" class="item item-icon-right" href="#/app/programming/{{city.Id}}">
+                {{city.Name}}
+                <i class="icon ion-ios-arrow-right"></i>
+            </a>
+        </div>
         <div class="video-container">
             <iframe ng-src="{{url}}" frameborder="0" width="100%" height="315"></iframe>
         </div>
