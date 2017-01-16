@@ -10,6 +10,10 @@ p, a {
   z-index: 1000;
 }
 
+.platform-ios .btn-choose-your-city {
+  margin-top: 35px !important;
+}
+
 .has-header {
     top: 80px;
 }
@@ -30,6 +34,13 @@ textarea::-moz-placeholder {
     background: #73010b url("../img/logo-cinea2.jpg") no-repeat scroll center top !important;
     min-height: 80px !important;
 }
+
+.platform-ios .bar-header.bar-assertive.main-bar .title{
+    background: #73010b url("../img/logo-cinea-ios.png") no-repeat scroll center top !important;
+    min-height: 80px !important;
+}
+
+
 
 /*Barras de títulos geral*/
 .bar-header.bar-assertive{
