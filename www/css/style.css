@@ -36,11 +36,9 @@ textarea::-moz-placeholder {
 }
 
 .platform-ios .bar-header.bar-assertive.main-bar .title{
-    background: #73010b url("../img/logo-cinea-ios.png") no-repeat scroll center top !important;
+    background: transparent url("../img/logo-cinea-ios.png") no-repeat scroll center top !important;
     min-height: 80px !important;
 }
-
-
 
 /*Barras de títulos geral*/
 .bar-header.bar-assertive{
