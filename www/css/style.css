@@ -10,12 +10,12 @@ p, a {
   z-index: 1000;
 }
 
-.platform-ios .btn-choose-your-city {
-  margin-top: 35px !important;
-}
-
 .has-header {
     top: 80px;
+}
+
+.platform-ios .has-header {
+    top: 115px;
 }
 
 input::-moz-placeholder, 
