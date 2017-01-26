@@ -1,0 +1,21 @@
+<ion-view>
+    <ion-content class="home">
+        <button class="button button-dark button-full icon-right ion-chevron-down btn-choose-your-city" ng-click="ShowOrHideMenu()">
+            Programação
+        </button>
+        <div class="list city-list" ng-show="ShowMenu">
+            <a ng-click="HideMenu()" ng-repeat="city in Cities" class="item item-icon-right" href="#/app/programming/{{city.Id}}">
+                {{city.Name}}
+                <i class="icon ion-ios-arrow-right"></i>
+            </a>
+        </div>
+        <p class="p-title in-poster">Em cartaz</p>
+        <div class="row">
+            <div class="col col-33" ng-repeat="movie in HomeMovies.moviesOnDisplay1To3"><a href="#/app/moviedetail/{{movie.Id}}"><img ng-src="{{movie.UrlImage}}" width="100%">{{movie.Name}}</a></div>
+        </div>
+        <p class="p-title coming-soon">Em breve</p>
+        <div class="row">
+            <div class="col col-33" ng-repeat="movie in HomeMovies.commingMovies1To3"><a href="#/app/moviedetail/{{movie.Id}}"><img ng-src="{{movie.UrlImage}}" width="100%">{{movie.Name}}</a></div>
+        </div>
+    </ion-content>
+</ion-view>

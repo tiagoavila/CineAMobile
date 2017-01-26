@@ -15,7 +15,7 @@ p, a {
 }
 
 .platform-ios .has-header {
-    top: 115px;
+    margin-top: 35px !important;
 }
 
 input::-moz-placeholder, 

@@ -59,7 +59,12 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       url: '/home',
       views: {
         'menuContent': {
-          templateUrl: 'templates/home.html',
+          templateUrl: function() {
+            if (ionic.Platform.isIOS()) {
+                return  "templates/home-ios.html";
+            }
+            return "templates/home.html";
+          },
           controller: 'HomeCtrl'
         }
       }
