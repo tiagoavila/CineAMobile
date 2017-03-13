@@ -13,9 +13,27 @@
         <div class="row">
             <div class="col col-33" ng-repeat="movie in HomeMovies.moviesOnDisplay1To3"><a href="#/app/moviedetail/{{movie.Id}}"><img ng-src="{{movie.UrlImage}}" width="100%">{{movie.Name}}</a></div>
         </div>
+        <div class="row">
+            <div class="col col-33" ng-repeat="movie in HomeMovies.moviesOnDisplay4To6"><a href="#/app/moviedetail/{{movie.Id}}"><img ng-src="{{movie.UrlImage}}" width="100%">{{movie.Name}}</a></div>
+        </div>
+        <div class="row">
+            <div class="col col-33" ng-repeat="movie in HomeMovies.moviesOnDisplay7To9"><a href="#/app/moviedetail/{{movie.Id}}"><img ng-src="{{movie.UrlImage}}" width="100%">{{movie.Name}}</a></div>
+        </div>
+        <div class="row">
+            <div class="col col-33" ng-repeat="movie in HomeMovies.moviesOnDisplay10To12"><a href="#/app/moviedetail/{{movie.Id}}"><img ng-src="{{movie.UrlImage}}" width="100%">{{movie.Name}}</a></div>
+        </div>
         <p class="p-title coming-soon">Em breve</p>
         <div class="row">
             <div class="col col-33" ng-repeat="movie in HomeMovies.commingMovies1To3"><a href="#/app/moviedetail/{{movie.Id}}"><img ng-src="{{movie.UrlImage}}" width="100%">{{movie.Name}}</a></div>
+        </div>
+        <div class="row">
+            <div class="col col-33" ng-repeat="movie in HomeMovies.commingMovies4To6"><a href="#/app/moviedetail/{{movie.Id}}"><img ng-src="{{movie.UrlImage}}" width="100%">{{movie.Name}}</a></div>
+        </div>
+        <div class="row">
+            <div class="col col-33" ng-repeat="movie in HomeMovies.commingMovies7To9"><a href="#/app/moviedetail/{{movie.Id}}"><img ng-src="{{movie.UrlImage}}" width="100%">{{movie.Name}}</a></div>
+        </div>
+        <div class="row">
+            <div class="col col-33" ng-repeat="movie in HomeMovies.commingMovies10To12"><a href="#/app/moviedetail/{{movie.Id}}"><img ng-src="{{movie.UrlImage}}" width="100%">{{movie.Name}}</a></div>
         </div>
     </ion-content>
 </ion-view>
