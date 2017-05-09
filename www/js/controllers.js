@@ -78,12 +78,10 @@ angular.module('starter.controllers', [])
 .controller('HomeCtrl', function ($scope, $ionicLoading, AppService) {
     ShowLoading($scope, $ionicLoading);
 
-    if (ionic.Platform.isIOS() == false) {
-        var bannerMobileRequest = AppService.getBannerMobile();
-        bannerMobileRequest.success(function (data) {
-            $scope.BannerMobile = data.Image;        
-        });
-    }    
+    var bannerMobileRequest = AppService.getBannerMobile();
+    bannerMobileRequest.success(function (data) { 
+        $scope.BannerMobile = data.Image;        
+    });  
 
     var homeMoviesRequest = AppService.getHomeMovies();
     homeMoviesRequest.success(function (data) {
