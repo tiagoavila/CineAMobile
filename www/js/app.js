@@ -127,7 +127,16 @@ angular.module('starter', ['ionic', 'starter.controllers'])
               controller: 'MovieDetailCtrl'
           }
       }
-  });
+  })
+  .state('app.clubcinea', {
+      url: '/clubcinea',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/clubcinea.html',
+          controller: 'ClubCineACtrl'
+        }
+      }
+    });
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/home');

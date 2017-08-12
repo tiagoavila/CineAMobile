@@ -302,7 +302,12 @@ angular.module('starter.controllers', [])
     });
 
      GetListCities($scope, AppService);
- });
+ })
+ 
+ .controller('ClubCineACtrl', function ($scope, $stateParams, $sce, AppService) {
+    
+});
+
 
 function GetListCities($scope, AppService)
 {
